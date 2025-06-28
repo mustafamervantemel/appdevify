@@ -19,7 +19,7 @@ const ContactSection = () => {
           rel="noopener noreferrer"
           className="bg-[#1C2532] rounded-xl p-8 flex flex-col items-center hover:bg-[#253041] transition"
         >
-          <img src={male1} alt="Erkek profil" className="w-16 h-16 rounded-full object-cover mb-4 border-4 border-[#324b6e]" />
+          
           <FaPhoneAlt size={30} className="mb-4 text-white/80" />
           <h3 className="text-lg font-semibold mb-1">Telefon</h3>
           <p className="text-white/70">0 530 562 91 26</p>

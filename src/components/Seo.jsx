@@ -1,5 +1,7 @@
 // src/components/SEOSection.jsx
 import React from "react";
+import { Link } from "react-router-dom";
+import monitor from "../media/monitor.jpg";
 
 export default function SEOSection() {
   return (
@@ -14,21 +16,21 @@ export default function SEOSection() {
             Web Siteleri İçin <br /> SEO Hizmetleri
           </h2>
           <p className="text-gray-300 text-base leading-relaxed max-w-xl">
-            Gürültüsüz, stratejik ve etkili SEO hizmetleri sunuyoruz. Abartılı
+            Stratejik ve etkili SEO hizmetleri sunuyoruz. Abartılı
             vaatler yok — yalnızca teknik netlik, sağlam yapı ve arka planda
-            çalışan güçlü içerik. Web sitenizin Google’da daha kolay bulunması,
+            çalışan güçlü içerik. Web sitenizin Google'da daha kolay bulunması,
             daha iyi sıralanması ve daha güvenilir olması için optimize
             ediyoruz.
           </p>
-          <button className="bg-[#506C83] hover:bg-[#3e566a] text-white font-medium px-6 py-3 rounded-full transition">
+          <Link to="/iletisim" className="bg-[#506C83] hover:bg-[#3e566a] text-white font-medium px-6 py-3 rounded-full transition inline-block text-center">
             Görüşme Planla
-          </button>
+          </Link>
         </div>
 
         {/* Sağ görsel alanı */}
         <div className="flex-1 relative">
           <img
-            src="/media/seo-main.png" // görsel yolunu kendi sistemine göre değiştir
+            src={monitor} // görsel yolunu kendi sistemine göre değiştir
             alt="SEO Analizi Görseli"
             className="rounded-xl shadow-lg w-full max-w-2xl"
           />

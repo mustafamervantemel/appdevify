@@ -66,7 +66,7 @@ export default function PortfolioSection() {
         {/* Etiket */}
         <div className="mb-6">
           <span className="inline-block bg-[#d2d8e2] text-sm text-[#3b4b61] px-4 py-1 rounded-full font-medium">
-            • Son Çalışmalarım
+            • Son Çalışmalarımız
           </span>
         </div>
 
@@ -84,7 +84,7 @@ export default function PortfolioSection() {
 
         {/* Buton */}
         <a
-          href="#"
+          href="/portfolyo"
           className="inline-block bg-[#506C83] hover:bg-[#40576d] text-white text-sm font-medium px-6 py-3 rounded-full transition"
         >
           Tüm Çalışmaları Gör

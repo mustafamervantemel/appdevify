@@ -46,25 +46,25 @@ export default function Asamalar() {
         </div>
 
         {/* Aşamalar */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {asamalar.map((asama) => (
             <div
               key={asama.id}
-              className="group border rounded-xl p-6 shadow-sm transition-all duration-300 bg-white relative hover:bg-[#506C83] hover:shadow-2xl"
+              className="group border rounded-xl p-4 sm:p-5 md:p-6 shadow-sm transition-all duration-300 bg-white relative hover:bg-[#506C83] hover:shadow-2xl"
             >
               {/* Arka plan numarası */}
-              <span className="absolute top-6 left-6 text-6xl font-bold opacity-10 text-gray-200 group-hover:text-white transition-all duration-300">
+              <span className="absolute top-4 left-4 md:top-6 md:left-6 text-5xl md:text-6xl font-bold opacity-10 text-gray-200 group-hover:text-white transition-all duration-300">
                 {asama.id}
               </span>
 
               {/* Başlık */}
-              <div className="text-2xl mb-3 font-semibold flex items-center gap-2 z-10 relative text-gray-800 group-hover:text-white transition-all duration-300">
+              <div className="text-xl md:text-2xl mb-2 md:mb-3 font-semibold flex items-center gap-2 z-10 relative text-gray-800 group-hover:text-white transition-all duration-300">
                 <span className="text-lg">{asama.ikon}</span>
                 {asama.baslik}
               </div>
 
               {/* Açıklama */}
-              <p className="text-gray-600 mb-4 text-sm z-10 relative group-hover:text-white transition-all duration-300">
+              <p className="text-gray-600 mb-3 md:mb-4 text-sm z-10 relative group-hover:text-white transition-all duration-300">
                 {asama.aciklama}
               </p>
 
@@ -72,7 +72,7 @@ export default function Asamalar() {
               <img
                 src={asama.gorsel}
                 alt={asama.baslik}
-                className="w-full rounded-lg border z-10 relative transform transition-transform duration-300 group-hover:scale-105"
+                className="w-full rounded-lg border z-10 relative transform transition-transform duration-300 group-hover:scale-105 max-h-40 sm:max-h-48 md:max-h-56 object-cover"
               />
             </div>
           ))}

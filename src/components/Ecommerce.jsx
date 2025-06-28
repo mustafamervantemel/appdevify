@@ -1,5 +1,7 @@
 // src/components/ECommerceSection.jsx
 import React from "react";
+import { Link } from "react-router-dom";
+import monitor from "../media/monitor.jpg";
 
 export default function ECommerceSection() {
   return (
@@ -20,15 +22,15 @@ export default function ECommerceSection() {
             büyütüyor olun, uçtan uca hatasız çalışan çevrimiçi mağazalar inşa
             ediyoruz.
           </p>
-          <button className="bg-[#506C83] hover:bg-[#3e566a] text-white font-medium px-6 py-3 rounded-full transition">
+          <Link to="/iletisim" className="bg-[#506C83] hover:bg-[#3e566a] text-white font-medium px-6 py-3 rounded-full transition inline-block text-center">
             Görüşme Planla
-          </button>
+          </Link>
         </div>
 
         {/* Sağ görsel alanı */}
         <div className="flex-1 relative">
           <img
-            src="/media/ecommerce-main.png" // örnek görsel yolu (değiştirilebilir)
+            src= {monitor} // örnek görsel yolu (değiştirilebilir)
             alt="Dijital Ürünler Görseli"
             className="rounded-xl shadow-lg w-full max-w-2xl"
           />

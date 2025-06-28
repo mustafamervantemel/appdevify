@@ -9,10 +9,10 @@ const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
       <Helmet>
-        <title>Veronsoft - Web Tasarım Hizmetleri</title>
+        <title>Varonsoft - Web Tasarım Hizmetleri</title>
         <meta
           name="description"
-          content="Veronsoft, modern, hızlı ve mobil uyumlu web tasarım hizmetleri sunar."
+          content="Varonsoft, modern, hızlı ve mobil uyumlu web tasarım hizmetleri sunar."
         />
       </Helmet>
 

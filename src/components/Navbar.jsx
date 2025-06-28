@@ -116,7 +116,7 @@ export default function Navbar() {
         </ul>
 
         {/* CTA Button */}
-        <Link to="/gorusme" className="hidden md:block">
+        <Link to="/iletisim" className="hidden md:block">
           <button className="bg-[#506C83] hover:bg-[#3e566a] text-white px-5 py-2 rounded-full text-sm font-medium transition">
             Görüşme Planla
           </button>

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import monitor from "../media/monitor.jpg";
+import ubuntu1 from "../media/ubuntu-panel.png";
+import adasmile1 from "../media/adasmile-panel.png";
+import irfan12 from "../media/irfan-panel.png";
+import mrhukuk1 from "../media/mrhukuk-panel.png";
 
 const categories = [
   "Hepsi",
   "Ajans",
   "Yapay Zeka",
   "Otomotiv",
-  "Kilise",
   "Danışmanlık",
   "Eğitim",
   "Kurumsal",
@@ -16,40 +19,49 @@ const categories = [
   "Hukuk",
   "Pazarlama",
   "Sağlık",
-  "Sivil Toplum",
   "Emlak",
-  "SaaS",
   "Medical",
   "Teknoloji",
   "Seyahat",
   "Video Prodüksiyon",
-  "Web3",
 ];
 
 const projects = [
   {
-    category: "SaaS",
-    title: "Cents",
+    category: "Finans",
+    title: "Ubuntu Yatırım",
     description:
-      "Cents, Amazon satıcılarının teslimat verimliliğini ve müşteri memnuniyetini artırmalarına yardımcı olmak için geliştirilen yapay zeka destekli bir yazılımdır.",
-    goal: "Amacımız, yazılımın değerini vurgulayan ve kullanıcıları harekete geçmeye teşvik eden bilgi dolu bir platform oluşturmaktı.",
-    image: "/media/project1.png",
+      "Özellikle bist hakkında temel ve teknik analiz eğitimi almak isteyen kişiler için hem eğitimler hem eğitim sonrası finansal danışmanlık yapan bir finansal kuruluş.",
+    goal: "Amacımız özellikle borsa yatırımcıların hisseler hakkında sisteme üye olduktan sonra forum ortamında sorularını sorup tartışması ve kolayca eğitim satın alacak bir arayüz geliştirerek satın alım oranını yükseltmekti.",
+    image: ubuntu1,
+    domain: "https://www.ubuntuyatirim.com/",
   },
   {
-    category: "Medical",
-    title: "Prova Health",
+    category: "Diş Polikliniği",
+    title: "Ada Smile Studio",
     description:
-      "Prova Health, yenilikçi sağlık çözümleri geliştiren bir sağlık teknolojisi şirketidir.",
-    goal: "Hedefimiz, potansiyel müşterilere ve iş ortaklarına ulaşacak güvenilir ve etkileyici bir platform oluşturmaktı.",
-    image: "/media/project2.png",
+      "Ada Smile Studio İstanbul/Fatih yerli ve yabancı hastalara dental hizmet sunan bir poliklinik.",
+    goal: "Kurduğumuz özel randevu sistemi ile müşteriler direkt internet sitesinde randevu taleplerini polikliniğe iletmesini amaçladık. Ayrıca mobil için özel tasarladığımız hemen ara ve whatsapp ile iletişime geç yoluyla hastaların klinik ile temasını artırdık.",
+    image: adasmile1,
+    domain: "https://www.adasmilestudio.com/",
   },
   {
-    category: "SaaS",
-    title: "ChangeLab",
+    category: "Mali Müşavirlik",
+    title: "İrfan Özdamar",
     description:
-      "ChangeLab, siyasi iletişim ve halkla ilişkiler süreçlerini yöneten bir yazılımdır.",
-    goal: "Amaç, platformun değerini net şekilde ileten ve kullanıcı deneyimini kolaylaştıran bir site oluşturmaktı.",
-    image: "/media/project3.png",
+      "İrfan Özdamar web sitesi İrfan Özdamar Bey'in kendi malimüşavirlik hizmetlerini sunduğu bir platform.",
+    goal: "Sayın İrfan Özdamar'ın iş portföyünü ve tecrübesini detaylıca yansıtarak müşterilerin İrfan Bey'i yakından tanımasını amaçladık. Kullandığımız Eylem Butonları sayesinde müşteriler direkt whatsapp ile İrfan Bey'in ofisi ile iletişime geçebiliyor.",
+    image: irfan12,
+    domain: "https://irfanozdamar-com.vercel.app/",
+  },
+  {
+    category: "Hukuk",
+    title: "MR Hukuk Bürosu",
+    description:
+      "MR Hukuk Bürosu Diyarbakır'da hukuki konularda hizmetler veren bir kurum.",
+    goal: "MR Hukuk Bürosunun İş Porföyü ve Hizmetleri detaylıca açıklamak istedik. Ayrıca özellikle Diyarbakır ilindeki müşterilerin ilgisini çekmek için özellikle SEO hizmetlerimizde Diyarbakır ilini hedefledik.",
+    image: mrhukuk1,
+    domain: "https://mrhukuk.vercel.app/",
   },
 ];
 
@@ -72,16 +84,14 @@ export default function FullPortfolio() {
               • Portfolyo
             </span>
             <h2 className="text-4xl font-bold leading-tight">
-              Squarespace <br /> Web Site Portfolyosu
+               <br /> Web Site Portfolyosu
             </h2>
             <p className="text-gray-300">
-              Varonsoft, ödüllü bir Squarespace tasarım stüdyosudur. 5+ yıllık
-              tecrübemizle 450'den fazla özel Squarespace web sitesi inşa ettik.
+              Varonsoft, ödüllü bir web tasarım stüdyosudur. 5+ yıllık
+              tecrübemizle 300'den fazla özel web sitesi inşa ettik.
               Aşağıda projelerimize göz atabilirsin.
             </p>
-            <button className="bg-white text-black font-medium px-6 py-3 rounded-full hover:bg-gray-200 transition">
-              Görüşme Planla
-            </button>
+        
           </div>
 
           {/* Sağ taraf görsel */}
@@ -146,8 +156,13 @@ export default function FullPortfolio() {
                   </h3>
                   <p className="text-gray-700">{project.description}</p>
                   <p className="text-gray-500 text-sm">{project.goal}</p>
-                  <button className="mt-4 bg-[#506C83] hover:bg-[#3e566a] text-white text-sm px-6 py-2 rounded-full flex items-center gap-2 transition">
-                    Daha Fazla Göster
+                  <a
+                    href={project.domain}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 bg-[#506C83] hover:bg-[#3e566a] text-white text-sm px-6 py-2 rounded-full flex items-center gap-2 transition w-fit"
+                  >
+                    Siteyi Ziyaret Et
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -161,7 +176,7 @@ export default function FullPortfolio() {
                         d="M9 5l7 7-7 7"
                       />
                     </svg>
-                  </button>
+                  </a>
                 </div>
               </div>
             ))

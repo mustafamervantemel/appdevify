@@ -17,9 +17,7 @@ export default function WhyChooseUs() {
               Tasarlanmış Mağazalar
             </h2>
           </div>
-          <button className="bg-[#506C83] hover:bg-[#3e566a] text-white font-medium px-6 py-3 rounded-full transition">
-            Görüşme Planla
-          </button>
+ 
         </div>
 
         {/* Kartlar */}

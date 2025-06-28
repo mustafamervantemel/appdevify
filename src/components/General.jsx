@@ -78,9 +78,7 @@ const Services = () => {
               <div className="text-[#506C83] mb-4">{service.icon}</div>
               <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
               <p className="text-gray-600 text-sm mb-4">{service.desc}</p>
-              <button className="text-[#506C83] font-medium hover:underline">
-                Detayları Gör
-              </button>
+         
             </div>
           ))}
         </div>

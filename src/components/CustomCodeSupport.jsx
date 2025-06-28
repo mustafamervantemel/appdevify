@@ -1,5 +1,6 @@
 // src/components/CustomCodeSupport.jsx
 import React from "react";
+import monitor from "../media/monitor.jpg";
 
 export default function CustomCodeSupport() {
   return (
@@ -21,7 +22,7 @@ export default function CustomCodeSupport() {
             yazarız.
           </p>
           <a
-            href="#iletisim"
+            href="/iletisim"
             className="inline-block bg-[#506C83] hover:bg-[#3e5466] transition px-6 py-3 rounded-full text-white font-medium"
           >
             Görüşme Planla
@@ -32,14 +33,12 @@ export default function CustomCodeSupport() {
         <div className="lg:w-1/2">
           <div className="relative rounded-xl overflow-hidden shadow-2xl border border-[#333]">
             <img
-              src="https://dummyimage.com/700x450/1c1c1c/ffffff&text=Kod+Destek+Ekranı"
+              src= {monitor}
               alt="Kod Destek Görseli"
               className="w-full object-cover"
             />
             {/* üzerine etiket eklenebilir */}
-            <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-sm px-3 py-1 rounded-full text-gray-200">
-              <span>Custom CSS Görünümü</span>
-            </div>
+
           </div>
         </div>
       </div>

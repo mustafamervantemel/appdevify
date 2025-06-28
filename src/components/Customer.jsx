@@ -22,8 +22,8 @@ export default function AboutResultsSection() {
     };
 
     animateCount(10, setExperience);
-    animateCount(60, setReferral);
-    animateCount(100, setSatisfaction);
+    animateCount(89, setReferral);
+    animateCount(85, setSatisfaction);
   }, []);
 
   return (
@@ -95,7 +95,7 @@ export default function AboutResultsSection() {
         {/* Buton */}
         <div className="mt-12">
           <a
-            href="#contact"
+            href="/iletisim"
             className="bg-[#3a506b] text-white px-6 py-3 rounded-full font-medium hover:bg-[#2e425d] transition"
           >
             Görüşme Planla

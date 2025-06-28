@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
+import ContactP from "./pages/ContactP";
 import Portfolio from "./pages/Portfolio";
 import Custom from "./pages/Custom";
 import Commerce from "./pages/Commerce";
 import SeoPage from "./pages/SeoPage";
 import Code from "./pages/Code";
+
 
 function App() {
   useEffect(() => {
@@ -21,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/hakkimizda" element={<About />} />
-        <Route path="/iletisim" element={<Contact />} />
+        <Route path="/iletisim" element={<ContactP />} />
         <Route path="/portfolyo" element={<Portfolio />} />
         <Route path="/hizmetler/ozel-site" element={<Custom />} />
         <Route path="/hizmetler/e-ticaret" element={<Commerce />} />

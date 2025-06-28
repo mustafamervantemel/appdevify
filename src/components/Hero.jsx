@@ -105,12 +105,14 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
-            <button className="bg-white text-black px-6 py-2.5 rounded-full font-medium hover:scale-105 transition flex items-center justify-center gap-2 shadow-sm">
-              <span>Görüşme Planla</span>
-            </button>
-            <button className="bg-white/10 text-white border border-white/20 px-6 py-2.5 rounded-full font-medium hover:bg-white hover:text-black transition">
+            <a
+              href="https://wa.me/905305629126"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/10 text-white border border-white/20 px-6 py-2.5 rounded-full font-medium hover:bg-white hover:text-black transition text-center"
+            >
               İletişime Geç
-            </button>
+            </a>
           </div>
         </div>
 
