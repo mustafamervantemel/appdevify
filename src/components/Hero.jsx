@@ -4,8 +4,7 @@ import RectangleBg from "../media/rectangle.jpg"; // Görsel yolunu dosya konumu
 import monitor from "../media/monitor.jpg";
 
 const SERVICE_ID = "service_msih2tq";
-const ADMIN_TEMPLATE_ID = "template_glsrfjf";
-const CUSTOMER_TEMPLATE_ID = "template_1klsz8r";
+const TEMPLATE_ID = "template_glsrfjf";
 const PUBLIC_KEY = "STJyxJJfDiPqPwq0B";
 
 const Hero = () => {
@@ -32,10 +31,9 @@ const Hero = () => {
     setSubmitStatus(null);
 
     try {
-      // Önce admin'e bilgi maili gönder
       await emailjs.send(
         SERVICE_ID,
-        ADMIN_TEMPLATE_ID,
+        TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -44,20 +42,6 @@ const Hero = () => {
         },
         PUBLIC_KEY
       );
-
-      // Sonra müşteriye otomatik yanıt gönder
-      await emailjs.send(
-        SERVICE_ID,
-        CUSTOMER_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        PUBLIC_KEY
-      );
-
       setSubmitStatus('success');
       setFormData({
         name: "",

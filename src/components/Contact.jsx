@@ -9,8 +9,7 @@ import Ofemale2 from "../profile/Ofemale2.svg";
 import Ofemale3 from "../profile/Ofemale3.svg";
 
 const SERVICE_ID = "service_msih2tq";
-const ADMIN_TEMPLATE_ID = "template_glsrfjf";
-const CUSTOMER_TEMPLATE_ID = "template_1klsz8r";
+const TEMPLATE_ID = "template_glsrfjf";
 const PUBLIC_KEY = "STJyxJJfDiPqPwq0B";
 
 export default function ContactSection() {
@@ -33,22 +32,9 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus(null);
     try {
-      // Admin'e mail gönder
       await emailjs.send(
         SERVICE_ID,
-        ADMIN_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        PUBLIC_KEY
-      );
-      // Müşteriye otomatik yanıt gönder
-      await emailjs.send(
-        SERVICE_ID,
-        CUSTOMER_TEMPLATE_ID,
+        TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
