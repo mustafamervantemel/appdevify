@@ -14,11 +14,20 @@ const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
       <Helmet>
-        <title>Veronsoft - Web Tasarım Hizmetleri</title>
+        <title>Hakkımızda | Varonsoft Web & Mobil Ajansı</title>
         <meta
           name="description"
-          content="Veronsoft, modern, hızlı ve mobil uyumlu web tasarım hizmetleri sunar."
+          content="Varonsoft ekibi olarak, yenilikçi web ve mobil uygulama çözümleriyle markanızı dijitalde büyütüyoruz. Ekibimizi ve vizyonumuzu tanıyın."
         />
+        <meta name="keywords" content="varonsoft, hakkımızda, ekip, ajans, yazılım, web geliştirme, mobil uygulama" />
+        <meta property="og:title" content="Hakkımızda | Varonsoft Web & Mobil Ajansı" />
+        <meta property="og:description" content="Yenilikçi web ve mobil uygulama çözümleriyle markanızı dijitalde büyütüyoruz." />
+        <meta property="og:url" content="https://www.varonsoft.com/hakkimizda" />
+        <meta property="og:image" content="/media/veronlogo12.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Varonsoft | Web & Mobil Uygulama Geliştirme Ajansı" />
+        <meta name="twitter:description" content="Web ve mobil projeleriniz için profesyonel çözümler. Varonsoft ile dijitalde fark yaratın." />
+        <meta name="twitter:image" content="/media/veronlogo12.png" />
       </Helmet>
 
       {/* Arka plan efektleri */}
@@ -31,7 +40,6 @@ const Home = () => {
         <AboutUs />
         <Customer />
         <CoreValues />
-        <Talk />
         <WhyUs />
         <Work />
         <Footer />

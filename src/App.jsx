@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -10,6 +11,11 @@ import SeoPage from "./pages/SeoPage";
 import Code from "./pages/Code";
 
 function App() {
+  useEffect(() => {
+    // EmailJS'i başlat
+    emailjs.init("YOUR_PUBLIC_KEY"); // EmailJS Public Key'inizi buraya yazın
+  }, []);
+
   return (
     <Router>
       <Routes>

@@ -2,57 +2,57 @@ import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 // Örnek görseller (800x600 önerilir)
-import Proje1 from "../media/pnl1.png";
-import Proje2 from "../media/pnl2.png";
-import Proje3 from "../media/pnl3.png";
-import Proje4 from "../media/pnl2.png";
-import Proje5 from "../media/pnl1.png";
-import Proje6 from "../media/pnl3.png";
+import Proje1 from "../media/ubuntu1.png";
+import Proje2 from "../media/adasmile1.png";
+import Proje3 from "../media/irfan12.png";
+import Proje4 from "../media/mrhukuk1.png";
+import Proje5 from "../media/jing1.png";
+import Proje6 from "../media/pimax1.png";
 
 // Animasyon için ekstra CSS (aşağıda eklenmiştir)
 
 const projeler = [
   {
     id: 1,
-    kategori: "Kurumsal",
-    baslik: "Trident Global",
+    kategori: "Finans",
+    baslik: "Ubuntu Yatırım",
     gorsel: Proje1,
-    link: "#",
+    link: "https://www.ubuntuyatirim.com/",
   },
   {
     id: 2,
-    kategori: "Yazılım (SaaS)",
-    baslik: "Cents",
+    kategori: "Diş Polikliniği",
+    baslik: "Ada Smile Studio",
     gorsel: Proje2,
-    link: "#",
+    link: "https://www.adasmilestudio.com/",
   },
   {
     id: 3,
-    kategori: "Sağlık",
-    baslik: "Prova Health",
+    kategori: "Mali Müşavirlik",
+    baslik: "İrfan Özdamar",
     gorsel: Proje3,
-    link: "#",
+    link: "https://irfanozdamar-com.vercel.app/",
   },
   {
     id: 4,
-    kategori: "E-Ticaret",
-    baslik: "Moda Market",
+    kategori: "Hukuk Bürosu",
+    baslik: "MR Hukuk Bürosu",
     gorsel: Proje4,
-    link: "#",
+    link: "https://mrhukuk.vercel.app/",
   },
   {
     id: 5,
-    kategori: "Hizmet",
-    baslik: "TemizFix",
+    kategori: "E-Ticaret",
+    baslik: "Jing Tea",
     gorsel: Proje5,
-    link: "#",
+    link: "https://jingtea.com/",
   },
   {
     id: 6,
-    kategori: "Kişisel Portföy",
-    baslik: "Tasarımcı Deniz",
+    kategori: "E-Ticaret",
+    baslik: "Pimax",
     gorsel: Proje6,
-    link: "#",
+    link: "https://pimax.com/",
   },
 ];
 
@@ -92,36 +92,42 @@ export default function PortfolioSection() {
 
         {/* Sürekli kayan kartlar */}
         <div className="mt-20 relative">
-          <div className="scrolling-wrapper flex gap-6 w-max animate-scroll">
+          <div className="scrolling-wrapper flex gap-8 w-max animate-scroll">
             {allProjects.map((proje, index) => (
               <div
                 key={index}
-                className="min-w-[320px] w-[320px] bg-white rounded-2xl border border-[#d3d9e2] p-5 relative group shadow-sm hover:shadow-xl"
+                className="min-w-[380px] w-[380px] h-[500px] bg-white rounded-3xl border border-[#d3d9e2] relative group shadow-sm hover:shadow-2xl overflow-hidden p-0 flex flex-col justify-end"
               >
-                {/* Etiket */}
-                <span className="absolute top-5 left-5 bg-[#f1f3f7] text-[#6b7a8d] text-xs font-medium px-3 py-1 rounded-full">
-                  {proje.kategori}
-                </span>
-
-                {/* Ok butonu */}
-                <a
-                  href={proje.link}
-                  className="absolute top-5 right-5 w-9 h-9 bg-[#506C83] rounded-full flex items-center justify-center text-white transition hover:bg-[#40576d]"
-                >
-                  <FiArrowRight size={18} />
-                </a>
-
-                {/* Başlık */}
-                <h3 className="text-lg font-medium text-[#1e2b3a] mt-14 mb-4">
-                  {proje.baslik}
-                </h3>
-
                 {/* Görsel */}
                 <img
                   src={proje.gorsel}
                   alt={proje.baslik}
-                  className="rounded-xl w-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-300 group-hover:scale-105"
                 />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b3a]/80 via-[#1e2b3a]/30 to-transparent z-10" />
+                {/* İçerik */}
+                <div className="relative z-20 flex flex-col h-full justify-between p-6">
+                  <div className="flex items-center justify-between">
+                    {/* Etiket */}
+                    <span className="bg-[#f1f3f7]/80 text-[#506C83] text-xs font-semibold px-4 py-1 rounded-full backdrop-blur-sm">
+                      {proje.kategori}
+                    </span>
+                    {/* Ok butonu */}
+                    <a
+                      href={proje.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-[#506C83] rounded-full flex items-center justify-center text-white transition hover:bg-[#40576d] shadow-lg"
+                    >
+                      <FiArrowRight size={22} />
+                    </a>
+                  </div>
+                  {/* Başlık */}
+                  <h3 className="text-2xl font-semibold text-white mt-auto mb-2 drop-shadow-lg">
+                    {proje.baslik}
+                  </h3>
+                </div>
               </div>
             ))}
           </div>

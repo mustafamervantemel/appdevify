@@ -1,7 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import RectangleBg from "../media/rectangle.jpg"; // Görsel yolunu dosya konumuna göre ayarla
+import monitor from "../media/monitor.jpg";
+
+const SERVICE_ID = "service_msih2tq";
+const ADMIN_TEMPLATE_ID = "template_glsrfjf";
+const CUSTOMER_TEMPLATE_ID = "template_1klsz8r";
+const PUBLIC_KEY = "STJyxJJfDiPqPwq0B";
 
 const Hero = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Önce admin'e bilgi maili gönder
+      await emailjs.send(
+        SERVICE_ID,
+        ADMIN_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      );
+
+      // Sonra müşteriye otomatik yanıt gönder
+      await emailjs.send(
+        SERVICE_ID,
+        CUSTOMER_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      );
+
+      setSubmitStatus('success');
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Email gönderimi başarısız:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       className="relative bg-cover bg-center min-h-screen text-white"
@@ -45,7 +116,19 @@ const Hero = () => {
 
         {/* Sağ taraf: Form kutusu */}
         <div className="flex-1 w-full max-w-full lg:max-w-[480px] bg-white rounded-xl shadow-2xl p-6 sm:p-8 text-black">
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Başarı/Hata mesajları */}
+            {submitStatus === 'success' && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.
+              </div>
+            )}
+
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1">
                 <label className="block font-medium mb-1 text-sm">
@@ -53,7 +136,11 @@ const Hero = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Adınızı girin"
+                  required
                   className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
               </div>
@@ -63,7 +150,11 @@ const Hero = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="E-posta adresiniz"
+                  required
                   className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
               </div>
@@ -73,12 +164,18 @@ const Hero = () => {
               <label className="block font-medium mb-1 text-sm">
                 Konu <span className="text-red-500">*</span>
               </label>
-              <select className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300">
+              <select 
+                name="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+                required
+                className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              >
                 <option value="">Konu seçin</option>
-                <option value="web">Web Sitesi Tasarımı</option>
-                <option value="seo">SEO Danışmanlığı</option>
-                <option value="e-ticaret">E-Ticaret Sitesi</option>
-                <option value="diger">Diğer</option>
+                <option value="Web Sitesi Tasarımı">Web Sitesi Tasarımı</option>
+                <option value="SEO Danışmanlığı">SEO Danışmanlığı</option>
+                <option value="E-Ticaret Sitesi">E-Ticaret Sitesi</option>
+                <option value="Diğer">Diğer</option>
               </select>
             </div>
 
@@ -87,17 +184,22 @@ const Hero = () => {
                 Mesaj <span className="text-red-500">*</span>
               </label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 placeholder="Size nasıl yardımcı olabiliriz?"
                 rows="4"
+                required
                 className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-[#324b6e] text-white py-3 rounded-full font-semibold hover:opacity-90 transition"
+              disabled={isSubmitting}
+              className="w-full bg-[#324b6e] text-white py-3 rounded-full font-semibold hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Talep Gönder
+              {isSubmitting ? 'Gönderiliyor...' : 'Talep Gönder'}
             </button>
           </form>
         </div>

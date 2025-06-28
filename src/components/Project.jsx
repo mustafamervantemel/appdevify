@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import monitor from "../media/monitor.jpg";
 
 const categories = [
   "Hepsi",
@@ -75,7 +76,7 @@ export default function FullPortfolio() {
             </h2>
             <p className="text-gray-300">
               Varonsoft, ödüllü bir Squarespace tasarım stüdyosudur. 5+ yıllık
-              tecrübemizle 450’den fazla özel Squarespace web sitesi inşa ettik.
+              tecrübemizle 450'den fazla özel Squarespace web sitesi inşa ettik.
               Aşağıda projelerimize göz atabilirsin.
             </p>
             <button className="bg-white text-black font-medium px-6 py-3 rounded-full hover:bg-gray-200 transition">
@@ -86,12 +87,12 @@ export default function FullPortfolio() {
           {/* Sağ taraf görsel */}
           <div className="flex-1 relative">
             <img
-              src="/media/portfolio-main.png"
+              src={monitor}
               alt="portfolio showcase"
               className="rounded-lg shadow-lg"
             />
             <div className="absolute top-0 right-0 bg-[#2b2e31] text-white px-4 py-2 text-sm rounded-bl-lg shadow-md">
-              450+ Squarespace sitesi inşa edildi
+              300+ web sitesi tasarlandı
             </div>
             <div className="absolute bottom-0 left-0 bg-[#2b2e31] text-white px-4 py-2 text-sm rounded-tr-lg shadow-md">
               5+ Yıllık Tecrübe

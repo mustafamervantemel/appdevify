@@ -12,6 +12,7 @@ import General from "../components/General";
 import Footer from "../components/Footer";
 import Talk from "../components/Talk";
 import Call from "../components/MobileCTA";
+import Testimonials from "../components/Testimonials";
 
 const Home = () => {
   return (
@@ -33,6 +34,7 @@ const Home = () => {
         <Navbar />
         <Call />
         <Hero />
+        <Testimonials />
         <Why />
         <Work />
         <Contact />
@@ -40,7 +42,6 @@ const Home = () => {
         <Type />
         <Library />
         <General />
-        <Talk />
         <Footer />
       </div>
     </div>
