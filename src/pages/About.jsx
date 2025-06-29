@@ -14,20 +14,19 @@ const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
       <Helmet>
-        <title>Hakkımızda | Varonsoft Web & Mobil Ajansı</title>
-        <meta
-          name="description"
-          content="Varonsoft ekibi olarak, yenilikçi web ve mobil uygulama çözümleriyle markanızı dijitalde büyütüyoruz. Ekibimizi ve vizyonumuzu tanıyın."
-        />
-        <meta name="keywords" content="varonsoft, hakkımızda, ekip, ajans, yazılım, web geliştirme, mobil uygulama" />
-        <meta property="og:title" content="Hakkımızda | Varonsoft Web & Mobil Ajansı" />
-        <meta property="og:description" content="Yenilikçi web ve mobil uygulama çözümleriyle markanızı dijitalde büyütüyoruz." />
+        <title>Hakkımızda | Varonsoft - Ekip, Vizyon & Misyon | Web Tasarım Ajansı</title>
+        <meta name="description" content="Varonsoft ekibi olarak, yenilikçi web ve mobil uygulama çözümleriyle markanızı dijitalde büyütüyoruz. 5+ yıllık tecrübemiz, uzman ekibimiz ve başarılı projelerimizle tanışın." />
+        <meta name="keywords" content="varonsoft hakkımızda, ekip, ajans, yazılım, web geliştirme, mobil uygulama, vizyon, misyon" />
+        <link rel="canonical" href="https://www.varonsoft.com/hakkimizda" />
+        <meta property="og:title" content="Hakkımızda | Varonsoft - Ekip, Vizyon & Misyon" />
+        <meta property="og:description" content="Varonsoft ekibi olarak, yenilikçi web ve mobil uygulama çözümleriyle markanızı dijitalde büyütüyoruz." />
         <meta property="og:url" content="https://www.varonsoft.com/hakkimizda" />
-        <meta property="og:image" content="/media/veronlogo12.png" />
+        <meta property="og:image" content="https://www.varonsoft.com/veron-tiny.svg" />
+        <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Varonsoft | Web & Mobil Uygulama Geliştirme Ajansı" />
-        <meta name="twitter:description" content="Web ve mobil projeleriniz için profesyonel çözümler. Varonsoft ile dijitalde fark yaratın." />
-        <meta name="twitter:image" content="/media/veronlogo12.png" />
+        <meta name="twitter:title" content="Hakkımızda | Varonsoft - Ekip, Vizyon & Misyon" />
+        <meta name="twitter:description" content="Varonsoft ekibi olarak, yenilikçi web ve mobil uygulama çözümleriyle markanızı dijitalde büyütüyoruz." />
+        <meta name="twitter:image" content="https://www.varonsoft.com/veron-tiny.svg" />
       </Helmet>
 
       {/* Arka plan efektleri */}

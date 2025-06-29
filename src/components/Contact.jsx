@@ -60,10 +60,10 @@ export default function ContactSection() {
           <span className="inline-block px-3 py-1 bg-[#dbe4ec] text-sm text-gray-600 rounded-full mb-4">
             • Hayalinizdeki site
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Projenize Başlayın
           </h2>
-          <p className="text-gray-700 mb-6">
+          <p className="text-gray-600 mb-6">
             Uzmanlığıma güvenen birçok işletmenin arasına katılın. Ücretsiz bir
             keşif görüşmesi ile projenizi başlatın ve vizyonunuzu nasıl hayata
             geçirebileceğimizi görün.
@@ -71,19 +71,14 @@ export default function ContactSection() {
           <div className="mt-5 flex items-center gap-3">
             <img src={Omale2} className="w-8 h-8 rounded-full" alt="avatar1" loading="lazy" />
             <img src={Ofemale2} className="w-8 h-8 rounded-full" alt="avatar2" loading="lazy" />
-            <img src={Omale3} className="w-8 h-8 rounded-full" alt="avatar3" loading="lazy" />
-            <img src={Ofemale3} className="w-8 h-8 rounded-full" alt="avatar4" loading="lazy" />
-            <img src={Omale4} className="w-8 h-8 rounded-full" alt="avatar5" loading="lazy" />
-            <img src={Omale5} className="w-8 h-8 rounded-full" alt="avatar6" loading="lazy" />
-            <img src={Omale6} className="w-8 h-8 rounded-full" alt="avatar7" loading="lazy" />
-            <span className="text-sm text-gray-500 ml-2">
-              450+ kişi birlikte çalışmaktan memnun kaldı
+            <span className="text-sm text-gray-600 ml-2">
+              300+ kişi birlikte çalışmaktan memnun kaldı
             </span>
           </div>
         </div>
 
         {/* Sağ Form Alanı */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border shadow-sm space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border shadow-sm space-y-4 text-gray-800">
           {submitStatus === "success" && (
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
               Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
@@ -96,7 +91,7 @@ export default function ContactSection() {
           )}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Ad Soyad *
               </label>
               <input
@@ -105,12 +100,12 @@ export default function ContactSection() {
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Adınızı girin"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm"
+                className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm placeholder-gray-500"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 E-posta *
               </label>
               <input
@@ -119,21 +114,21 @@ export default function ContactSection() {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="E-posta adresiniz"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm"
+                className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm placeholder-gray-500"
                 required
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Konu *
             </label>
             <select
               name="subject"
               value={formData.subject}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm"
+              className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm"
               required
             >
               <option value="">Bir konu seçin</option>
@@ -144,7 +139,7 @@ export default function ContactSection() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Mesaj *
             </label>
             <textarea
@@ -153,7 +148,7 @@ export default function ContactSection() {
               onChange={handleInputChange}
               rows="4"
               placeholder="Size nasıl yardımcı olabiliriz?"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm"
+              className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm placeholder-gray-500"
               required
             ></textarea>
           </div>
@@ -161,7 +156,7 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#506C83] text-white py-2 rounded-md hover:bg-[#3f5364] transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-[#506C83] text-white py-3 rounded-md hover:bg-[#3f5364] transition disabled:opacity-50 disabled:cursor-not-allowed font-medium"
           >
             {isSubmitting ? "Gönderiliyor..." : "Mesajı Gönder"}
           </button>

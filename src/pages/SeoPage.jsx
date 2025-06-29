@@ -14,11 +14,19 @@ const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
       <Helmet>
-        <title>Veronsoft - Web Tasarım Hizmetleri</title>
-        <meta
-          name="description"
-          content="Veronsoft, modern, hızlı ve mobil uyumlu web tasarım hizmetleri sunar."
-        />
+        <title>SEO Hizmetleri & Arama Motoru Optimizasyonu | Varonsoft - Google Sıralama</title>
+        <meta name="description" content="Varonsoft ile SEO hizmetleri ve arama motoru optimizasyonu. Google sıralama, anahtar kelime optimizasyonu, içerik pazarlaması ve organik trafik artırma. Web sitenizi arama motorlarında üst sıralara taşıyın." />
+        <meta name="keywords" content="SEO hizmetleri, arama motoru optimizasyonu, google sıralama, anahtar kelime optimizasyonu, organik trafik, varonsoft" />
+        <link rel="canonical" href="https://www.varonsoft.com/seo" />
+        <meta property="og:title" content="SEO Hizmetleri & Arama Motoru Optimizasyonu | Varonsoft" />
+        <meta property="og:description" content="Varonsoft ile SEO hizmetleri ve arama motoru optimizasyonu. Google sıralama ve organik trafik artırma." />
+        <meta property="og:url" content="https://www.varonsoft.com/seo" />
+        <meta property="og:image" content="https://www.varonsoft.com/veron-tiny.svg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SEO Hizmetleri & Arama Motoru Optimizasyonu | Varonsoft" />
+        <meta name="twitter:description" content="Varonsoft ile SEO hizmetleri ve arama motoru optimizasyonu. Google sıralama ve organik trafik artırma." />
+        <meta name="twitter:image" content="https://www.varonsoft.com/veron-tiny.svg" />
       </Helmet>
 
       {/* Arka plan efektleri */}

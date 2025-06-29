@@ -9,11 +9,19 @@ const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
       <Helmet>
-        <title>Veronsoft - Web Tasarım Hizmetleri</title>
-        <meta
-          name="description"
-          content="Veronsoft, modern, hızlı ve mobil uyumlu web tasarım hizmetleri sunar."
-        />
+        <title>İletişim | Varonsoft - Telefon, E-posta & Adres | Web Tasarım Ajansı</title>
+        <meta name="description" content="Varonsoft ile iletişime geçin. Telefon: 0530 562 91 26, E-posta: info@varonsoft.com. İstanbul/Pendik'te web tasarım, yazılım ve dijital çözümler için bize ulaşın." />
+        <meta name="keywords" content="varonsoft iletişim, telefon, e-posta, adres, web tasarım ajansı, istanbul" />
+        <link rel="canonical" href="https://www.varonsoft.com/iletisim" />
+        <meta property="og:title" content="İletişim | Varonsoft - Telefon, E-posta & Adres" />
+        <meta property="og:description" content="Varonsoft ile iletişime geçin. Telefon: 0530 562 91 26, E-posta: info@varonsoft.com." />
+        <meta property="og:url" content="https://www.varonsoft.com/iletisim" />
+        <meta property="og:image" content="https://www.varonsoft.com/veron-tiny.svg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="İletişim | Varonsoft - Telefon, E-posta & Adres" />
+        <meta name="twitter:description" content="Varonsoft ile iletişime geçin. Telefon: 0530 562 91 26, E-posta: info@varonsoft.com." />
+        <meta name="twitter:image" content="https://www.varonsoft.com/veron-tiny.svg" />
       </Helmet>
 
       {/* Arka plan efektleri */}

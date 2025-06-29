@@ -9,11 +9,19 @@ const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
       <Helmet>
-        <title>Varonsoft - Web Tasarım Hizmetleri</title>
-        <meta
-          name="description"
-          content="Varonsoft, modern, hızlı ve mobil uyumlu web tasarım hizmetleri sunar."
-        />
+        <title>Portfolyo | Varonsoft - Projeler & Çalışmalar | Web Tasarım Örnekleri</title>
+        <meta name="description" content="Varonsoft portfolyosu: Ubuntu Yatırım, Ada Smile Studio, İrfan Özdamar, MR Hukuk Bürosu gibi başarılı projelerimizi inceleyin. Finans, sağlık, hukuk ve e-ticaret alanlarında web tasarım örnekleri." />
+        <meta name="keywords" content="varonsoft portfolyo, projeler, çalışmalar, web tasarım örnekleri, ubuntu yatırım, ada smile studio" />
+        <link rel="canonical" href="https://www.varonsoft.com/portfolyo" />
+        <meta property="og:title" content="Portfolyo | Varonsoft - Projeler & Çalışmalar" />
+        <meta property="og:description" content="Varonsoft portfolyosu: Ubuntu Yatırım, Ada Smile Studio, İrfan Özdamar, MR Hukuk Bürosu gibi başarılı projelerimizi inceleyin." />
+        <meta property="og:url" content="https://www.varonsoft.com/portfolyo" />
+        <meta property="og:image" content="https://www.varonsoft.com/veron-tiny.svg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfolyo | Varonsoft - Projeler & Çalışmalar" />
+        <meta name="twitter:description" content="Varonsoft portfolyosu: Ubuntu Yatırım, Ada Smile Studio, İrfan Özdamar, MR Hukuk Bürosu gibi başarılı projelerimizi inceleyin." />
+        <meta name="twitter:image" content="https://www.varonsoft.com/veron-tiny.svg" />
       </Helmet>
 
       {/* Arka plan efektleri */}

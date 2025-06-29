@@ -11,11 +11,19 @@ const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
       <Helmet>
-        <title>Veronsoft - Web Tasarım Hizmetleri</title>
-        <meta
-          name="description"
-          content="Veronsoft, modern, hızlı ve mobil uyumlu web tasarım hizmetleri sunar."
-        />
+        <title>Özel Web Sitesi Tasarımı | Varonsoft - Kurumsal & E-Ticaret | Web Tasarım Ajansı</title>
+        <meta name="description" content="Varonsoft ile özel web sitesi tasarımı. Kurumsal siteler, e-ticaret platformları, portföy siteleri ve özel yazılım çözümleri. Markanıza özel, modern ve kullanıcı dostu web siteleri." />
+        <meta name="keywords" content="özel web sitesi tasarımı, kurumsal site, e-ticaret sitesi, portföy sitesi, özel yazılım, varonsoft" />
+        <link rel="canonical" href="https://www.varonsoft.com/ozel-site" />
+        <meta property="og:title" content="Özel Web Sitesi Tasarımı | Varonsoft - Kurumsal & E-Ticaret" />
+        <meta property="og:description" content="Varonsoft ile özel web sitesi tasarımı. Kurumsal siteler, e-ticaret platformları ve özel yazılım çözümleri." />
+        <meta property="og:url" content="https://www.varonsoft.com/ozel-site" />
+        <meta property="og:image" content="https://www.varonsoft.com/veron-tiny.svg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Özel Web Sitesi Tasarımı | Varonsoft - Kurumsal & E-Ticaret" />
+        <meta name="twitter:description" content="Varonsoft ile özel web sitesi tasarımı. Kurumsal siteler, e-ticaret platformları ve özel yazılım çözümleri." />
+        <meta name="twitter:image" content="https://www.varonsoft.com/veron-tiny.svg" />
       </Helmet>
 
       {/* Arka plan efektleri */}
