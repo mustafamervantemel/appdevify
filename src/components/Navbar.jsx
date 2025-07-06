@@ -35,7 +35,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="text-black py-4 px-6 sm:px-10 relative z-50 bg-white shadow-sm">
+    <nav className="text-black py-4 px-6 sm:px-10 relative z-50 bg-white shadow-sm" itemscope itemtype="https://schema.org/SiteNavigationElement">
       <div className="max-w-[1440px] mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="w-28 sm:w-32">
@@ -52,13 +52,13 @@ export default function Navbar() {
         {/* Menü - Masaüstü */}
         <ul className="hidden md:flex items-center space-x-8 text-sm font-medium">
           <li>
-            <Link to="/" className="hover:text-gray-500">
-              Anasayfa
+            <Link to="/" className="hover:text-gray-500" itemProp="url">
+              <span itemProp="name">Anasayfa</span>
             </Link>
           </li>
           <li>
-            <Link to="/hakkimizda" className="hover:text-gray-500">
-              Hakkımızda
+            <Link to="/hakkimizda" className="hover:text-gray-500" itemProp="url">
+              <span itemProp="name">Hakkımızda</span>
             </Link>
           </li>
           <li
@@ -104,13 +104,13 @@ export default function Navbar() {
             )}
           </li>
           <li>
-            <Link to="/portfolyo" className="hover:text-gray-500">
-              Portfolyo
+            <Link to="/portfolyo" className="hover:text-gray-500" itemProp="url">
+              <span itemProp="name">Portfolyo</span>
             </Link>
           </li>
           <li>
-            <Link to="/iletisim" className="hover:text-gray-500">
-              İletişim
+            <Link to="/iletisim" className="hover:text-gray-500" itemProp="url">
+              <span itemProp="name">İletişim</span>
             </Link>
           </li>
         </ul>

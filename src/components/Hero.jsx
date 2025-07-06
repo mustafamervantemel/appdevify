@@ -11,6 +11,7 @@ const Hero = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: ""
   });
@@ -37,6 +38,7 @@ const Hero = () => {
         {
           from_name: formData.name,
           from_email: formData.email,
+          from_phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
         },
@@ -46,6 +48,7 @@ const Hero = () => {
       setFormData({
         name: "",
         email: "",
+        phone: "",
         subject: "",
         message: ""
       });
@@ -144,6 +147,22 @@ const Hero = () => {
                   className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
               </div>
+            </div>
+
+            <div>
+              <label className="block font-medium mb-1 text-sm">
+                Telefon <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="05XX XXX XX XX"
+                pattern="[0-9]{11}"
+                required
+                className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              />
             </div>
 
             <div>

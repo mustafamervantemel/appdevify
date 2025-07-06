@@ -16,6 +16,7 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: ""
   });
@@ -38,13 +39,14 @@ export default function ContactSection() {
         {
           from_name: formData.name,
           from_email: formData.email,
+          from_phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
         },
         PUBLIC_KEY
       );
       setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) {
       setSubmitStatus("error");
     } finally {
@@ -118,6 +120,22 @@ export default function ContactSection() {
                 required
               />
             </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Telefon *
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="05XX XXX XX XX"
+              pattern="[0-9]{11}"
+              className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-[#506C83] focus:border-[#506C83] text-sm placeholder-gray-500"
+              required
+            />
           </div>
 
           <div>

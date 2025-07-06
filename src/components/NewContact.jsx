@@ -18,6 +18,7 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: ""
   });
@@ -40,13 +41,14 @@ export default function ContactSection() {
         {
           from_name: formData.name,
           from_email: formData.email,
+          from_phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
         },
         PUBLIC_KEY
       );
       setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) {
       setSubmitStatus("error");
     } finally {
@@ -94,6 +96,21 @@ export default function ContactSection() {
                 className="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#506C83]"
               />
             </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Telefon <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="05XX XXX XX XX"
+              pattern="[0-9]{11}"
+              required
+              className="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#506C83]"
+            />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
