@@ -134,25 +134,41 @@ export default function Navbar() {
           </Link>
 
           <details className="group">
-            <summary className="flex justify-between items-center cursor-pointer">
+            <summary className="flex justify-between items-center cursor-pointer list-none block">
               <span>Hizmetler</span>
               <FaChevronDown
                 size={12}
                 className="group-open:rotate-180 transition"
               />
             </summary>
-            <div className="mt-2 ml-2 space-y-2 text-gray-700">
-              <Link to="/hizmetler/ozel-site" onClick={toggleMobileMenu}>
-                • Özel İnternet Sitesi
+            <div className="mt-3 ml-2 space-y-1">
+              <Link 
+                to="/hizmetler/ozel-site" 
+                onClick={toggleMobileMenu}
+                className="block py-2 px-3 text-gray-700 hover:text-[#506C83] hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Özel İnternet Sitesi
               </Link>
-              <Link to="/hizmetler/seo" onClick={toggleMobileMenu}>
-                • SEO
+              <Link 
+                to="/hizmetler/seo" 
+                onClick={toggleMobileMenu}
+                className="block py-2 px-3 text-gray-700 hover:text-[#506C83] hover:bg-gray-50 rounded-md transition-colors"
+              >
+                SEO
               </Link>
-              <Link to="/hizmetler/e-ticaret" onClick={toggleMobileMenu}>
-                • E-Ticaret Sitesi
+              <Link 
+                to="/hizmetler/e-ticaret" 
+                onClick={toggleMobileMenu}
+                className="block py-2 px-3 text-gray-700 hover:text-[#506C83] hover:bg-gray-50 rounded-md transition-colors"
+              >
+                E-Ticaret Sitesi
               </Link>
-              <Link to="/hizmetler/kod-destegi" onClick={toggleMobileMenu}>
-                • Özel Kod Desteği
+              <Link 
+                to="/hizmetler/kod-destegi" 
+                onClick={toggleMobileMenu}
+                className="block py-2 px-3 text-gray-700 hover:text-[#506C83] hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Özel Kod Desteği
               </Link>
             </div>
           </details>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 // Örnek görseller (800x600 önerilir)
 import Proje1 from "../media/ubuntu1.png";
@@ -83,12 +84,12 @@ export default function PortfolioSection() {
         </p>
 
         {/* Buton */}
-        <a
-          href="/portfolyo"
+        <Link
+          to="/portfolyo"
           className="inline-block bg-[#506C83] hover:bg-[#40576d] text-white text-sm font-medium px-6 py-3 rounded-full transition"
         >
           Tüm Çalışmaları Gör
-        </a>
+        </Link>
 
         {/* Sürekli kayan kartlar */}
         <div className="mt-20 relative">

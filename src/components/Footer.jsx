@@ -1,10 +1,5 @@
-import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaXTwitter,
-  FaFacebookF,
-  FaBehance,
-} from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { FaInstagram } from "react-icons/fa6";
 import Logo from "../media/veronlogo12.png";
 
 export default function Footer() {
@@ -21,23 +16,15 @@ export default function Footer() {
 
         {/* Orta Menü */}
         <div className="flex flex-col gap-2 text-sm text-gray-200">
-          <a href="/portfolyo" className="hover:text-white cursor-pointer transition">Nasıl Çalışıyoruz</a>
-          <a href="/portfolyo" className="hover:text-white cursor-pointer transition">Projelerimiz</a>
-          <a href="/hizmetler/seo" className="hover:text-white cursor-pointer transition">Hizmetler</a>
-          <a href="/iletisim" className="hover:text-white cursor-pointer transition">İletişim</a>
+          <Link to="/portfolyo" className="hover:text-white cursor-pointer transition">Portfolyo</Link>
+          <Link to="/portfolyo" className="hover:text-white cursor-pointer transition">Projelerimiz</Link>
+          <Link to="/hizmetler/seo" className="hover:text-white cursor-pointer transition">Hizmetler</Link>
+          <Link to="/iletisim" className="hover:text-white cursor-pointer transition">İletişim</Link>
         </div>
 
         {/* Sağ Sosyal & Mail */}
         <div className="flex flex-col items-center lg:items-end gap-4">
           <div className="flex gap-4">
-            <a
-              href="https://www.linkedin.com/company/varonsoft/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-gray-400 hover:border-white p-2 rounded-full transition"
-            >
-              <FaLinkedinIn />
-            </a>
             <a
               href="https://www.instagram.com/varonsoft/"
               target="_blank"
@@ -45,30 +32,6 @@ export default function Footer() {
               className="border border-gray-400 hover:border-white p-2 rounded-full transition"
             >
               <FaInstagram />
-            </a>
-            <a
-              href="https://twitter.com/varonsoft"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-gray-400 hover:border-white p-2 rounded-full transition"
-            >
-              <FaXTwitter />
-            </a>
-            <a
-              href="https://www.facebook.com/varonsoft/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-gray-400 hover:border-white p-2 rounded-full transition"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href="https://www.behance.net/varonsoft"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-gray-400 hover:border-white p-2 rounded-full transition"
-            >
-              <FaBehance />
             </a>
           </div>
           <p className="text-sm text-gray-300">info@varonsoft.com</p>

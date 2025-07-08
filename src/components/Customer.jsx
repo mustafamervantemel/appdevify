@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function AboutResultsSection() {
   const [experience, setExperience] = useState(0);
@@ -94,12 +95,12 @@ export default function AboutResultsSection() {
 
         {/* Buton */}
         <div className="mt-12">
-          <a
-            href="/iletisim"
+          <Link
+            to="/iletisim"
             className="bg-[#3a506b] text-white px-6 py-3 rounded-full font-medium hover:bg-[#2e425d] transition"
           >
             Görüşme Planla
-          </a>
+          </Link>
         </div>
       </div>
     </section>
