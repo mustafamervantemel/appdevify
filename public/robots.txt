@@ -1,3 +1,25 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.varonsoft.com/sitemap.xml 
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*
+Allow: /hizmetler/
+Allow: /portfolyo/
+Allow: /hakkimizda/
+Allow: /iletisim/
+
+# Crawl-delay for different bots
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 2
+
+User-agent: Slurp
+Crawl-delay: 3
+
+# Sitemaps
+Sitemap: https://www.varonsoft.com/sitemap.xml
+Sitemap: https://www.varonsoft.com/sitemap-news.xml
+Sitemap: https://www.varonsoft.com/sitemap-images.xml 

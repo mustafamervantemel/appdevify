@@ -2,24 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.varonsoft.com/</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.varonsoft.com/hakkimizda</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.varonsoft.com/iletisim</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <link rel="canonical" href="https://www.varonsoft.com/iletisim" />
   </url>
   <url>
     <loc>https://www.varonsoft.com/portfolyo</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.varonsoft.com/hizmetler</loc>
-    <priority>0.7</priority>
+    <loc>https://www.varonsoft.com/hizmetler/ozel-site</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-  <!-- Diğer önemli sayfalar eklenebilir -->
+  <url>
+    <loc>https://www.varonsoft.com/hizmetler/e-ticaret</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.varonsoft.com/hizmetler/seo</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.varonsoft.com/hizmetler/kod-destegi</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset> 
