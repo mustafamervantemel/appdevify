@@ -15,7 +15,6 @@ const categories = [
   "Kurumsal",
   "Etkinlik",
   "Finans",
-  "Fitness",
   "Hukuk",
   "Pazarlama",
   "Sağlık",
