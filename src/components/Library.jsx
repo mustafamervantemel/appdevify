@@ -1,5 +1,5 @@
-import React from "react";
-import { FiArrowRight } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiArrowRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 // Örnek görseller (800x600 önerilir)
@@ -9,6 +9,8 @@ import Proje3 from "../media/irfan12.png";
 import Proje4 from "../media/mrhukuk1.png";
 import Proje5 from "../media/jing1.png";
 import Proje6 from "../media/pimax1.png";
+import Proje7 from "../media/restorant.png";
+import Proje8 from "../media/varonmark.png";
 
 // Animasyon için ekstra CSS (aşağıda eklenmiştir)
 
@@ -55,11 +57,61 @@ const projeler = [
     gorsel: Proje6,
     link: "https://pimax.com/",
   },
+  {
+    id: 7,
+    kategori: "Restoran",
+    baslik: "Restaurant Five",
+    gorsel: Proje7,
+    link: "https://restaurant-five-azure.vercel.app/",
+  },
+  {
+    id: 8,
+    kategori: "Sosyal Medya Ajansı",
+    baslik: "Varonmark",
+    gorsel: Proje8,
+    link: "https://varonmark.com/",
+  },
 ];
 
 export default function PortfolioSection() {
-  // Projeleri iki kez üst üste koyarak akışı döngüsel hale getiriyoruz
-  const allProjects = [...projeler, ...projeler];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Responsive card counts
+  const getCardsPerView = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 768) return 1; // Mobile
+      if (window.innerWidth < 1024) return 2; // Tablet
+      return 3; // Desktop
+    }
+    return 3;
+  };
+
+  const [cardsPerView, setCardsPerView] = useState(getCardsPerView());
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setCardsPerView(getCardsPerView());
+      setCurrentIndex(0); // Reset to first slide on resize
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => 
+      prev + cardsPerView >= projeler.length ? 0 : prev + cardsPerView
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => 
+      prev === 0 ? Math.max(0, projeler.length - cardsPerView) : Math.max(0, prev - cardsPerView)
+    );
+  };
+
+  const canGoPrev = currentIndex > 0;
+  const canGoNext = currentIndex + cardsPerView < projeler.length;
 
   return (
     <section className="bg-[#e8edf3] py-24 px-6 md:px-12 overflow-hidden">
@@ -91,46 +143,102 @@ export default function PortfolioSection() {
           Tüm Çalışmaları Gör
         </Link>
 
-        {/* Sürekli kayan kartlar */}
+        {/* Carousel */}
         <div className="mt-20 relative">
-          <div className="scrolling-wrapper flex gap-8 w-max animate-scroll">
-            {allProjects.map((proje, index) => (
-              <div
-                key={index}
-                className="min-w-[380px] w-[380px] h-[500px] bg-white rounded-3xl border border-[#d3d9e2] relative group shadow-sm hover:shadow-2xl overflow-hidden p-0 flex flex-col justify-end"
-              >
-                {/* Görsel */}
-                <img
-                  src={proje.gorsel}
-                  alt={proje.baslik}
-                  className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-300 group-hover:scale-105"
+          {/* Navigation Arrows */}
+          <div className="flex justify-between items-center mb-8">
+            <button
+              onClick={prevSlide}
+              disabled={!canGoPrev}
+              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                canGoPrev
+                  ? 'border-[#506C83] text-[#506C83] hover:bg-[#506C83] hover:text-white shadow-md hover:shadow-lg'
+                  : 'border-gray-300 text-gray-300 cursor-not-allowed'
+              }`}
+            >
+              <FiChevronLeft size={24} />
+            </button>
+            
+            <div className="flex space-x-2">
+              {Array.from({ length: Math.ceil(projeler.length / cardsPerView) }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index * cardsPerView)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    Math.floor(currentIndex / cardsPerView) === index
+                      ? 'bg-[#506C83] scale-110'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
                 />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b3a]/80 via-[#1e2b3a]/30 to-transparent z-10" />
-                {/* İçerik */}
-                <div className="relative z-20 flex flex-col h-full justify-between p-6">
-                  <div className="flex items-center justify-between">
-                    {/* Etiket */}
-                    <span className="bg-[#f1f3f7]/80 text-[#506C83] text-xs font-semibold px-4 py-1 rounded-full backdrop-blur-sm">
-                      {proje.kategori}
-                    </span>
-                    {/* Ok butonu */}
-                    <a
-                      href={proje.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-[#506C83] rounded-full flex items-center justify-center text-white transition hover:bg-[#40576d] shadow-lg"
-                    >
-                      <FiArrowRight size={22} />
-                    </a>
+              ))}
+            </div>
+
+            <button
+              onClick={nextSlide}
+              disabled={!canGoNext}
+              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                canGoNext
+                  ? 'border-[#506C83] text-[#506C83] hover:bg-[#506C83] hover:text-white shadow-md hover:shadow-lg'
+                  : 'border-gray-300 text-gray-300 cursor-not-allowed'
+              }`}
+            >
+              <FiChevronRight size={24} />
+            </button>
+          </div>
+
+          {/* Cards Container */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out gap-6"
+              style={{
+                transform: `translateX(-${(currentIndex * (100 / cardsPerView))}%)`,
+              }}
+            >
+              {projeler.map((proje, index) => (
+                <div
+                  key={index}
+                  className={`flex-shrink-0 bg-white rounded-3xl border border-[#d3d9e2] relative group shadow-sm hover:shadow-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 ${
+                    cardsPerView === 1 ? 'w-full' : 
+                    cardsPerView === 2 ? 'w-[calc(50%-12px)]' : 
+                    'w-[calc(33.333%-16px)]'
+                  } h-[450px] md:h-[500px]`}
+                >
+                  {/* Görsel */}
+                  <img
+                    src={proje.gorsel}
+                    alt={proje.baslik}
+                    className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b3a]/90 via-[#1e2b3a]/40 to-transparent z-10 transition-opacity duration-300 group-hover:from-[#1e2b3a]/95" />
+                  {/* İçerik */}
+                  <div className="relative z-20 flex flex-col h-full justify-between p-6">
+                    <div className="flex items-center justify-between">
+                      {/* Etiket */}
+                      <span className="bg-[#f1f3f7]/90 text-[#506C83] text-xs font-semibold px-4 py-2 rounded-full backdrop-blur-sm transition-all duration-300 group-hover:bg-white group-hover:scale-105 shadow-sm">
+                        {proje.kategori}
+                      </span>
+                      {/* Ok butonu */}
+                      <a
+                        href={proje.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 bg-[#506C83] rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-[#40576d] hover:scale-110 shadow-lg hover:shadow-xl"
+                      >
+                        <FiArrowRight size={20} />
+                      </a>
+                    </div>
+                    {/* Başlık */}
+                    <div className="mt-auto">
+                      <h3 className="text-xl md:text-2xl font-semibold text-white mb-2 drop-shadow-lg transition-transform duration-300 group-hover:translate-y-[-4px]">
+                        {proje.baslik}
+                      </h3>
+                      <div className="w-12 h-1 bg-white/60 rounded-full transition-all duration-300 group-hover:w-16 group-hover:bg-white"></div>
+                    </div>
                   </div>
-                  {/* Başlık */}
-                  <h3 className="text-2xl font-semibold text-white mt-auto mb-2 drop-shadow-lg">
-                    {proje.baslik}
-                  </h3>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

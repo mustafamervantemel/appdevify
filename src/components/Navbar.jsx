@@ -179,7 +179,7 @@ export default function Navbar() {
           <Link to="/iletisim" onClick={toggleMobileMenu} className="block">
             İletişim
           </Link>
-          <Link to="/gorusme" onClick={toggleMobileMenu} className="block">
+          <Link to="/iletisim" onClick={toggleMobileMenu} className="block">
             <button className="w-full bg-[#506C83] hover:bg-[#3e566a] text-white px-4 py-2 rounded-full font-medium transition">
               Görüşme Planla
             </button>
