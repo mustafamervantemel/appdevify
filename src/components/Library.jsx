@@ -187,9 +187,9 @@ export default function PortfolioSection() {
           </div>
 
           {/* Cards Container */}
-          <div className="overflow-hidden">
+          <div className="overflow-hidden px-3 md:px-0">
             <div 
-              className="flex transition-transform duration-500 ease-in-out gap-6"
+              className="flex transition-transform duration-500 ease-in-out gap-3 md:gap-6"
               style={{
                 transform: `translateX(-${(currentIndex * (100 / cardsPerView))}%)`,
               }}
@@ -198,7 +198,7 @@ export default function PortfolioSection() {
                 <div
                   key={index}
                   className={`flex-shrink-0 bg-white rounded-3xl border border-[#d3d9e2] relative group shadow-sm hover:shadow-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 ${
-                    cardsPerView === 1 ? 'w-full' : 
+                    cardsPerView === 1 ? 'w-[calc(100%-24px)] mx-3' : 
                     cardsPerView === 2 ? 'w-[calc(50%-12px)]' : 
                     'w-[calc(33.333%-16px)]'
                   } h-[450px] md:h-[500px]`}
