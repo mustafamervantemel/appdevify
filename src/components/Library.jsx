@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { FiArrowRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import LazyImage from "./LazyImage";
@@ -89,17 +89,20 @@ export default function PortfolioSection() {
 
   const [cardsPerView, setCardsPerView] = useState(getCardsPerView());
 
-  const nextSlide = useCallback(() => {
+  const canGoPrev = currentIndex > 0;
+  const canGoNext = currentIndex + cardsPerView < projeler.length;
+
+  const nextSlide = () => {
     setCurrentIndex((prev) => 
       prev + cardsPerView >= projeler.length ? 0 : prev + cardsPerView
     );
-  }, [cardsPerView]);
+  };
 
-  const prevSlide = useCallback(() => {
+  const prevSlide = () => {
     setCurrentIndex((prev) => 
       prev === 0 ? Math.max(0, projeler.length - cardsPerView) : Math.max(0, prev - cardsPerView)
     );
-  }, [cardsPerView]);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -113,12 +116,16 @@ export default function PortfolioSection() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowLeft' && canGoPrev) {
+      if (e.key === 'ArrowLeft' && currentIndex > 0) {
         e.preventDefault();
-        prevSlide();
-      } else if (e.key === 'ArrowRight' && canGoNext) {
+        setCurrentIndex((prev) => 
+          prev === 0 ? Math.max(0, projeler.length - cardsPerView) : Math.max(0, prev - cardsPerView)
+        );
+      } else if (e.key === 'ArrowRight' && currentIndex + cardsPerView < projeler.length) {
         e.preventDefault();
-        nextSlide();
+        setCurrentIndex((prev) => 
+          prev + cardsPerView >= projeler.length ? 0 : prev + cardsPerView
+        );
       }
     };
 
@@ -127,10 +134,7 @@ export default function PortfolioSection() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [canGoPrev, canGoNext, prevSlide, nextSlide]);
-
-  const canGoPrev = currentIndex > 0;
-  const canGoNext = currentIndex + cardsPerView < projeler.length;
+  }, [currentIndex, cardsPerView]);
 
   return (
     <section className="bg-[#e8edf3] py-24 px-6 md:px-12 overflow-hidden">
