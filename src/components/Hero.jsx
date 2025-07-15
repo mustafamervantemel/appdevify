@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import RectangleBg from "../media/rectangle.jpg"; // Görsel yolunu dosya konumuna göre ayarla
-import monitor from "../media/monitor.jpg";
 
 const SERVICE_ID = "service_msih2tq";
 const TEMPLATE_ID = "template_glsrfjf";
@@ -17,6 +16,14 @@ const Hero = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    // Preload background image
+    const img = new Image();
+    img.onload = () => setImageLoaded(true);
+    img.src = RectangleBg;
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -62,7 +69,9 @@ const Hero = () => {
 
   return (
     <section
-      className="relative bg-cover bg-center min-h-screen text-white"
+      className={`relative bg-cover bg-center min-h-screen text-white transition-opacity duration-300 ${
+        imageLoaded ? 'opacity-100' : 'opacity-90'
+      }`}
       style={{ backgroundImage: `url(${RectangleBg})` }}
     >
       {/* Yarı saydam katman (istersen koyulaştırabilirsin) */}
