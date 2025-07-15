@@ -89,6 +89,18 @@ export default function PortfolioSection() {
 
   const [cardsPerView, setCardsPerView] = useState(getCardsPerView());
 
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => 
+      prev + cardsPerView >= projeler.length ? 0 : prev + cardsPerView
+    );
+  }, [cardsPerView]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => 
+      prev === 0 ? Math.max(0, projeler.length - cardsPerView) : Math.max(0, prev - cardsPerView)
+    );
+  }, [cardsPerView]);
+
   useEffect(() => {
     const handleResize = () => {
       setCardsPerView(getCardsPerView());
@@ -116,18 +128,6 @@ export default function PortfolioSection() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [canGoPrev, canGoNext, prevSlide, nextSlide]);
-
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => 
-      prev + cardsPerView >= projeler.length ? 0 : prev + cardsPerView
-    );
-  }, [cardsPerView]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => 
-      prev === 0 ? Math.max(0, projeler.length - cardsPerView) : Math.max(0, prev - cardsPerView)
-    );
-  }, [cardsPerView]);
 
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex + cardsPerView < projeler.length;
