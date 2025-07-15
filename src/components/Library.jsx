@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FiArrowRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import LazyImage from "./LazyImage";
 
 // Örnek görseller (800x600 önerilir)
 import Proje1 from "../media/ubuntu1.png";
@@ -88,7 +89,7 @@ export default function PortfolioSection() {
 
   const [cardsPerView, setCardsPerView] = useState(getCardsPerView());
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setCardsPerView(getCardsPerView());
       setCurrentIndex(0); // Reset to first slide on resize
@@ -98,17 +99,35 @@ export default function PortfolioSection() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const nextSlide = () => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft' && canGoPrev) {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'ArrowRight' && canGoNext) {
+        e.preventDefault();
+        nextSlide();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [canGoPrev, canGoNext, prevSlide, nextSlide]);
+
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => 
       prev + cardsPerView >= projeler.length ? 0 : prev + cardsPerView
     );
-  };
+  }, [cardsPerView]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex((prev) => 
       prev === 0 ? Math.max(0, projeler.length - cardsPerView) : Math.max(0, prev - cardsPerView)
     );
-  };
+  }, [cardsPerView]);
 
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex + cardsPerView < projeler.length;
@@ -124,9 +143,9 @@ export default function PortfolioSection() {
         </div>
 
         {/* Başlık */}
-        <h1 className="text-4xl md:text-5xl font-semibold text-[#1e2b3a] leading-tight mb-6">
+        <h2 className="text-4xl md:text-5xl font-semibold text-[#1e2b3a] leading-tight mb-6">
           Sonuç Odaklı Web Siteleri Tasarlıyoruz
-        </h1>
+        </h2>
 
         {/* Açıklama */}
         <p className="text-[#3b4b61] max-w-3xl text-lg leading-relaxed mb-10">
@@ -144,13 +163,14 @@ export default function PortfolioSection() {
         </Link>
 
         {/* Carousel */}
-        <div className="mt-20 relative">
+        <div className="mt-20 relative" role="region" aria-label="Portfolio carousel">
           {/* Navigation Arrows */}
           <div className="flex justify-between items-center mb-8">
             <button
               onClick={prevSlide}
               disabled={!canGoPrev}
-              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+              aria-label="Önceki projeleri göster"
+              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#506C83] focus:ring-offset-2 ${
                 canGoPrev
                   ? 'border-[#506C83] text-[#506C83] hover:bg-[#506C83] hover:text-white shadow-md hover:shadow-lg'
                   : 'border-gray-300 text-gray-300 cursor-not-allowed'
@@ -159,12 +179,14 @@ export default function PortfolioSection() {
               <FiChevronLeft size={24} />
             </button>
             
-            <div className="flex space-x-2">
+            <div className="flex space-x-2" role="tablist" aria-label="Portfolio sayfa göstergeleri">
               {Array.from({ length: Math.ceil(projeler.length / cardsPerView) }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index * cardsPerView)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  aria-label={`Sayfa ${index + 1}'e git`}
+                  aria-current={Math.floor(currentIndex / cardsPerView) === index ? 'page' : false}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#506C83] focus:ring-offset-2 ${
                     Math.floor(currentIndex / cardsPerView) === index
                       ? 'bg-[#506C83] scale-110'
                       : 'bg-gray-300 hover:bg-gray-400'
@@ -176,7 +198,8 @@ export default function PortfolioSection() {
             <button
               onClick={nextSlide}
               disabled={!canGoNext}
-              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+              aria-label="Sonraki projeleri göster"
+              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#506C83] focus:ring-offset-2 ${
                 canGoNext
                   ? 'border-[#506C83] text-[#506C83] hover:bg-[#506C83] hover:text-white shadow-md hover:shadow-lg'
                   : 'border-gray-300 text-gray-300 cursor-not-allowed'
@@ -204,9 +227,9 @@ export default function PortfolioSection() {
                   } h-[450px] md:h-[500px]`}
                 >
                   {/* Görsel */}
-                  <img
+                  <LazyImage
                     src={proje.gorsel}
-                    alt={proje.baslik}
+                    alt={`${proje.baslik} - ${proje.kategori} projesi ekran görüntüsü`}
                     className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110"
                   />
                   {/* Overlay */}
@@ -223,7 +246,8 @@ export default function PortfolioSection() {
                         href={proje.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-12 h-12 bg-[#506C83] rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-[#40576d] hover:scale-110 shadow-lg hover:shadow-xl"
+                        aria-label={`${proje.baslik} projesini görüntüle`}
+                        className="w-12 h-12 bg-[#506C83] rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-[#40576d] hover:scale-110 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#506C83]"
                       >
                         <FiArrowRight size={20} />
                       </a>

@@ -10,7 +10,7 @@ const LazyImage = ({
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
-  const [src, setSrc] = useState(priority ? src : placeholder);
+  const [currentSrc, setCurrentSrc] = useState(priority ? src : placeholder);
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const LazyImage = ({
     if (priority || isInView) {
       const img = new Image();
       img.onload = () => {
-        setSrc(src);
+        setCurrentSrc(src);
         setIsLoaded(true);
       };
       img.src = src;
@@ -49,7 +49,7 @@ const LazyImage = ({
   return (
     <img
       ref={imgRef}
-      src={src}
+      src={currentSrc}
       alt={alt}
       className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-70'} transition-opacity duration-300`}
       loading={priority ? 'eager' : 'lazy'}

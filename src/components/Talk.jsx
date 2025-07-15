@@ -36,7 +36,7 @@ export default function ProjectContactSection() {
               <div className="flex items-center gap-3">
                 <img
                   src={ceoPhoto}
-                  alt="CEO"
+                  alt="Mert Yılmaz, Kurucu ve CEO"
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
@@ -44,7 +44,10 @@ export default function ProjectContactSection() {
                   <p className="text-sm text-gray-500">Kurucu & CEO</p>
                 </div>
               </div>
-              <button className="bg-[#324b6e] text-white p-2 rounded-full">
+              <button 
+                className="bg-[#324b6e] text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-[#324b6e] focus:ring-offset-2"
+                aria-label="Mert Yılmaz ile görüşme planla"
+              >
                 <FaCalendarAlt />
               </button>
             </div>
