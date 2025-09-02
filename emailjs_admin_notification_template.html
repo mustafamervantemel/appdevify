@@ -1,0 +1,286 @@
+<div
+  style="
+    font-family: system-ui, sans-serif, Arial;
+    font-size: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+  "
+>
+  <!-- Header with Logo -->
+  <div style="text-align: center; margin-bottom: 30px">
+    <a
+      style="text-decoration: none; outline: none"
+      href="https://appdevify.com"
+      target="_blank"
+    >
+      <img
+        style="height: 48px; vertical-align: middle"
+        height="48px"
+        src="cid:logo.png"
+        alt="Appdevify Logo"
+      />
+    </a>
+    <h1 style="color: #000000; margin: 15px 0 0 0; font-size: 28px">
+      New Project Inquiry 🚀
+    </h1>
+  </div>
+
+  <!-- Project Details Card -->
+  <div
+    style="
+      background-color: #f8f9fa;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid #9cff28;
+      margin-bottom: 25px;
+    "
+  >
+    <h2
+      style="
+        color: #000000;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 22px;
+        border-bottom: 2px solid #9cff28;
+        padding-bottom: 10px;
+      "
+    >
+      📋 Project Information
+    </h2>
+
+    <div
+      style="
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      "
+    >
+      <table style="width: 100%; border-collapse: collapse">
+        <tr>
+          <td
+            style="
+              padding: 8px 0;
+              font-weight: 600;
+              color: #000000;
+              width: 140px;
+            "
+          >
+            Subject:
+          </td>
+          <td style="padding: 8px 0; color: #333333">{{subject}}</td>
+        </tr>
+        <tr>
+          <td
+            style="
+              padding: 8px 0;
+              font-weight: 600;
+              color: #000000;
+              width: 140px;
+            "
+          >
+            Inquiry Time:
+          </td>
+          <td style="padding: 8px 0; color: #333333">{{time}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Client Information Card -->
+  <div
+    style="
+      background-color: #f8f9fa;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid #9cff28;
+      margin-bottom: 25px;
+    "
+  >
+    <h2
+      style="
+        color: #000000;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 22px;
+        border-bottom: 2px solid #9cff28;
+        padding-bottom: 10px;
+      "
+    >
+      👤 Client Details
+    </h2>
+
+    <div
+      style="
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      "
+    >
+      <table style="width: 100%; border-collapse: collapse">
+        <tr>
+          <td
+            style="
+              padding: 8px 0;
+              font-weight: 600;
+              color: #000000;
+              width: 140px;
+            "
+          >
+            Full Name:
+          </td>
+          <td style="padding: 8px 0; color: #333333">{{name}}</td>
+        </tr>
+        <tr>
+          <td
+            style="
+              padding: 8px 0;
+              font-weight: 600;
+              color: #000000;
+              width: 140px;
+            "
+          >
+            Email:
+          </td>
+          <td style="padding: 8px 0; color: #333333">
+            <a
+              href="mailto:{{email}}"
+              style="color: #9cff28; text-decoration: none"
+              >{{email}}</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              padding: 8px 0;
+              font-weight: 600;
+              color: #000000;
+              width: 140px;
+            "
+          >
+            Phone:
+          </td>
+          <td style="padding: 8px 0; color: #333333">
+            <a
+              href="tel:{{phone}}"
+              style="color: #9cff28; text-decoration: none"
+              >{{phone}}</a
+            >
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Project Description -->
+  <div
+    style="
+      background-color: #f8f9fa;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid #9cff28;
+      margin-bottom: 25px;
+    "
+  >
+    <h2
+      style="
+        color: #000000;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 22px;
+        border-bottom: 2px solid #9cff28;
+        padding-bottom: 10px;
+      "
+    >
+      📝 Project Description
+    </h2>
+
+    <div
+      style="
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      "
+    >
+      <p
+        style="
+          color: #333333;
+          line-height: 1.6;
+          margin: 0;
+          white-space: pre-wrap;
+        "
+      >
+        {{message}}
+      </p>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div style="text-align: center; margin: 30px 0">
+    <a
+      href="mailto:{{email}}?subject=Re: {{subject}} - Project Inquiry"
+      style="
+        display: inline-block;
+        background-color: #9cff28;
+        color: #000000;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        margin: 0 10px;
+        transition: opacity 0.3s;
+      "
+      onmouseover="this.style.opacity='0.8'"
+      onmouseout="this.style.opacity='1'"
+    >
+      📧 Reply to Client
+    </a>
+
+    <a
+      href="https://appdevify.com/admin/projects"
+      style="
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        margin: 0 10px;
+        transition: opacity 0.3s;
+      "
+      onmouseover="this.style.opacity='0.8'"
+      onmouseout="this.style.opacity='1'"
+    >
+      📊 View in Dashboard
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div
+    style="
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaeaea;
+    "
+  >
+    <p style="color: #666666; margin-bottom: 10px">
+      This inquiry was submitted from the Appdevify website contact form.
+    </p>
+
+    <div style="margin-top: 20px">
+      <p style="color: #666666; font-size: 14px; margin-bottom: 5px">
+        <strong>Appdevify</strong> - Premium App & Web Development
+      </p>
+      <p style="color: #666666; font-size: 12px; margin: 0">
+        📧 hello@appdevify.com | 🌐 appdevify.com | 📱 +1 (555) 123-4567
+      </p>
+    </div>
+  </div>
+</div>

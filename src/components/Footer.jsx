@@ -1,46 +1,47 @@
 import { Link } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa6";
-import Logo from "../media/veronlogo12.png";
+import AppdevifyLogo from "../media/appdevify_logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f091c] text-white px-8 py-12">
+    <footer className="bg-black text-white px-8 py-12">
       <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row justify-between gap-12">
-        {/* Sol Bölüm */}
+        {/* Left Section */}
         <div className="flex-1 flex flex-col items-start justify-start">
-          <img src={Logo} alt="Varonsoft Logo" className="w-32 h-auto mb-4" />
+          <img src={AppdevifyLogo} alt="Appdevify Logo" className="w-32 h-auto mb-4" />
           <p className="text-sm leading-relaxed text-gray-300">
-            Varonsoft, modern ve yenilikçi web tasarım, yazılım ve dijital dönüşüm çözümleri sunar. Kurumsal web siteleri, e-ticaret, SEO ve özel yazılım projelerinde uzman ekibimizle Türkiye ve globalde işletmelere değer katıyoruz.
+            Appdevify delivers cutting-edge mobile app and web development solutions for businesses across the US and UK. We specialize in custom software development, modern web applications, and comprehensive digital transformation services.
           </p>
         </div>
 
-        {/* Orta Menü */}
+        {/* Center Menu */}
         <div className="flex flex-col gap-2 text-sm text-gray-200">
-          <Link to="/portfolyo" className="hover:text-white cursor-pointer transition">Portfolyo</Link>
-          <Link to="/portfolyo" className="hover:text-white cursor-pointer transition">Projelerimiz</Link>
-          <Link to="/hizmetler/seo" className="hover:text-white cursor-pointer transition">Hizmetler</Link>
-          <Link to="/iletisim" className="hover:text-white cursor-pointer transition">İletişim</Link>
+          <Link to="/portfolio" className="hover:text-white cursor-pointer transition">Portfolio</Link>
+          <Link to="/portfolio" className="hover:text-white cursor-pointer transition">Our Projects</Link>
+          <Link to="/services/web-development" className="hover:text-white cursor-pointer transition">Services</Link>
+          <Link to="/contact" className="hover:text-white cursor-pointer transition">Contact</Link>
         </div>
 
-        {/* Sağ Sosyal & Mail */}
+        {/* Right Social & Email */}
         <div className="flex flex-col items-center lg:items-end gap-4">
           <div className="flex gap-4">
             <a
-              href="https://www.instagram.com/varonsoft/"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-gray-400 hover:border-white p-2 rounded-full transition"
+              style={{'--hover-border-color': '#9CFF28'}}
             >
               <FaInstagram />
             </a>
           </div>
-          <p className="text-sm text-gray-300">info@varonsoft.com</p>
+          <p className="text-sm text-gray-300">hello@appdevify.com</p>
         </div>
       </div>
 
-      {/* Alt Çizgi */}
+      {/* Bottom Line */}
       <div className="border-t border-white/10 mt-12 pt-4 text-center text-sm text-gray-400">
-        Copyright © {new Date().getFullYear()} Varonsoft
+        Copyright © {new Date().getFullYear()} Appdevify
       </div>
     </footer>
   );

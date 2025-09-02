@@ -1,52 +1,53 @@
 import React from "react";
 import { FaCheckSquare, FaCalendarAlt } from "react-icons/fa";
-import ceoPhoto from "../media/pnl1.png"; // Görsel yolunu kendi projene göre düzenle
+import ceoPhoto from "../media/pnl1.png"; // Adjust image path according to your project
 
 export default function ProjectContactSection() {
   return (
-    <section className="bg-[#f4f4f4] py-20 px-6 md:px-16">
+    <section className="bg-black py-20 px-6 md:px-16">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
-        {/* Sol Kısım */}
+        {/* Left Section */}
         <div className="flex-1">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Projen mi var?
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Have a Project?
           </h2>
-          <h3 className="text-4xl font-semibold text-gray-500 mb-10">
-            Hadi konuşalım!
+          <h3 className="text-4xl font-semibold text-gray-400 mb-10">
+            Let's Talk!
           </h3>
 
-          <div className="space-y-4 text-gray-700 text-sm">
+          <div className="space-y-4 text-gray-300 text-sm">
             <p className="flex items-start gap-2">
-              <FaCheckSquare className="text-[#324b6e] mt-1" />
-              Gizlilik mi? İstemen yeterli.
+              <FaCheckSquare className="mt-1" style={{color: '#9CFF28'}} />
+              Privacy? Just ask.
             </p>
             <p className="flex items-start gap-2">
-              <FaCheckSquare className="text-[#324b6e] mt-1" />
-              24 saat içinde hızlı ve odaklı geri dönüş sağlıyoruz.
+              <FaCheckSquare className="mt-1" style={{color: '#9CFF28'}} />
+              We provide fast and focused feedback within 24 hours.
             </p>
             <p className="flex items-start gap-2">
-              <FaCheckSquare className="text-[#324b6e] mt-1" />
-              Junior değil, deneyimli uzmanlarla çalışıyorsun.
+              <FaCheckSquare className="mt-1" style={{color: '#9CFF28'}} />
+              You're working with experienced experts, not juniors.
             </p>
           </div>
 
           <div className="mt-10">
-            <p className="font-medium text-gray-900 mb-2">Görüşme planla:</p>
-            <div className="bg-white rounded-lg shadow flex items-center justify-between p-4 max-w-[320px]">
+            <p className="font-medium text-white mb-2">Schedule a meeting:</p>
+            <div className="bg-gray-900 rounded-lg shadow flex items-center justify-between p-4 max-w-[320px] border border-gray-700">
               <div className="flex items-center gap-3">
                 <img
                   src={ceoPhoto}
-                  alt="Mert Yılmaz, Kurucu ve CEO"
+                  alt="Michael Johnson, Founder and CEO"
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-semibold text-gray-900">Mert Yılmaz</p>
-                  <p className="text-sm text-gray-500">Kurucu & CEO</p>
+                  <p className="font-semibold text-white">Michael Johnson</p>
+                  <p className="text-sm text-gray-400">Founder & CEO</p>
                 </div>
               </div>
               <button 
-                className="bg-[#324b6e] text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-[#324b6e] focus:ring-offset-2"
-                aria-label="Mert Yılmaz ile görüşme planla"
+                className="text-black p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-[#9CFF28] focus:ring-offset-2 focus:ring-offset-black"
+                style={{backgroundColor: '#9CFF28'}}
+                aria-label="Schedule meeting with Michael Johnson"
               >
                 <FaCalendarAlt />
               </button>
@@ -54,60 +55,65 @@ export default function ProjectContactSection() {
           </div>
         </div>
 
-        {/* Sağ Form */}
-        <div className="flex-1 bg-white p-8 rounded-xl shadow-md">
+        {/* Right Form */}
+        <div className="flex-1 bg-gray-900 p-8 rounded-xl shadow-md border border-gray-700">
           <form className="space-y-6">
-            {/* Giriş Alanları */}
+            {/* Input Fields */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="email"
-                placeholder="E-posta"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-50 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#324b6e]"
+                placeholder="Email"
+                className="w-full border border-gray-600 rounded-md px-4 py-2 bg-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 text-white"
+                style={{'--tw-ring-color': '#9CFF28'}}
               />
               <input
                 type="text"
-                placeholder="Ad Soyad"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-50 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#324b6e]"
+                placeholder="Full Name"
+                className="w-full border border-gray-600 rounded-md px-4 py-2 bg-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 text-white"
+                style={{'--tw-ring-color': '#9CFF28'}}
               />
-              <select className="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-50 text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#324b6e]">
-                <option>Proje bütçesi</option>
-                <option>0–10.000₺</option>
-                <option>10.000₺–50.000₺</option>
-                <option>50.000₺+</option>
+              <select className="w-full border border-gray-600 rounded-md px-4 py-2 bg-gray-800 text-sm text-white focus:outline-none focus:ring-2"
+                      style={{'--tw-ring-color': '#9CFF28'}}>
+                <option>Project Budget</option>
+                <option>$0–$10,000</option>
+                <option>$10,000–$50,000</option>
+                <option>$50,000+</option>
               </select>
-              <select className="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-50 text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#324b6e]">
-                <option>Bizden nasıl haberdar oldunuz?</option>
+              <select className="w-full border border-gray-600 rounded-md px-4 py-2 bg-gray-800 text-sm text-white focus:outline-none focus:ring-2"
+                      style={{'--tw-ring-color': '#9CFF28'}}>
+                <option>How did you hear about us?</option>
                 <option>Google</option>
-                <option>Sosyal Medya</option>
-                <option>Referans</option>
+                <option>Social Media</option>
+                <option>Referral</option>
               </select>
             </div>
 
-            {/* Mesaj */}
+            {/* Message */}
             <textarea
               rows="4"
-              placeholder="Bize projenizden ve hedeflerinizden bahsedin."
-              className="w-full border text-black border-gray-300 rounded-md px-4 py-2 bg-gray-50 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#324b6e]"
+              placeholder="Tell us about your project and goals."
+              className="w-full border text-white border-gray-600 rounded-md px-4 py-2 bg-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2"
+              style={{'--tw-ring-color': '#9CFF28'}}
             />
 
-            {/* Yardımcı Olunacak Konular */}
+            {/* Help Topics */}
             <div>
-              <p className="font-medium text-gray-900 mb-2">
-                Nasıl yardımcı olabiliriz?
+              <p className="font-medium text-white mb-2">
+                How can we help you?
               </p>
-              <div className="flex flex-wrap gap-2 text-black">
+              <div className="flex flex-wrap gap-2 text-white">
                 {[
-                  "UI/UX Tasarımı",
-                  "Kurumsal Site",
-                  "SEO Danışmanlığı",
-                  "Mobil Uygulama",
-                  "E-Ticaret",
-                  "Yazılım Geliştirme",
-                  "MVP Geliştirme",
+                  "UI/UX Design",
+                  "Corporate Website",
+                  "SEO Consulting",
+                  "Mobile App",
+                  "E-Commerce",
+                  "Software Development",
+                  "MVP Development",
                 ].map((item, i) => (
                   <span
                     key={i}
-                    className="px-4 py-2 border border-gray-300 text-sm rounded-full hover:bg-[#324b6e] hover:text-white cursor-pointer transition"
+                    className="px-4 py-2 border border-gray-600 text-sm rounded-full hover:bg-[#9CFF28] hover:text-black cursor-pointer transition"
                   >
                     {item}
                   </span>
@@ -115,21 +121,23 @@ export default function ProjectContactSection() {
               </div>
             </div>
 
-            {/* Gönderme Alanı */}
+            {/* Submit Section */}
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <button
                 type="submit"
-                className="bg-[#324b6e] text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition"
+                className="text-black px-6 py-3 rounded-full font-semibold hover:opacity-90 transition"
+                style={{backgroundColor: '#9CFF28'}}
               >
-                Mesaj Gönder
+                Send Message
               </button>
-              <p className="text-sm">
-                Mail mi tercih edersiniz?{" "}
+              <p className="text-sm text-gray-400">
+                Prefer email?{" "}
                 <a
-                  href="mailto:hello@veronsoft.com"
-                  className="underline text-[#324b6e]"
+                  href="mailto:hello@appdevify.com"
+                  className="underline"
+                  style={{color: '#9CFF28'}}
                 >
-                  hello@veronsoft.com
+                  hello@appdevify.com
                 </a>
               </p>
             </div>

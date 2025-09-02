@@ -9,46 +9,45 @@ import {
 const benefits = [
   {
     icon: <FaLock size={28} />,
-    title: "Sabit Fiyat",
-    desc: "Sürpriz maliyetler olmadan sınırsız tasarım talebi için sabit aylık ücret.",
+    title: "Fixed Pricing",
+    desc: "Transparent, fixed monthly rates with no surprise costs for unlimited development requests.",
     color: "bg-blue-500",
   },
   {
     icon: <FaBolt size={28} />,
-    title: "Hızlı Teslimat",
-    desc: "Tasarımın 24–48 saat içinde teslim. Revize ister misin? Hemen halledilir.",
+    title: "Fast Delivery",
+    desc: "Projects delivered within 24-48 hours. Need revisions? We handle them immediately.",
     color: "bg-purple-500",
   },
   {
     icon: <FaStar size={28} />,
-    title: "Üst Düzey Kalite",
-    desc: "Her zaman uzman tasarımcı kalitesi, parmaklarının ucunda.",
+    title: "Premium Quality",
+    desc: "Enterprise-grade development quality, always at your fingertips.",
     color: "bg-green-500",
   },
   {
     icon: <FaRocket size={28} />,
-    title: "İstediğin Zaman Ölçekle",
-    desc: "İstediğin zaman artır, azalt veya ara ver. Aboneliği durdurmak kolay.",
+    title: "Scale On Demand",
+    desc: "Increase, decrease, or pause services anytime. Easy to manage your subscription.",
     color: "bg-pink-500",
   },
   {
     icon: <FaFingerprint size={28} />,
-    title: "Tamamen Sana Özel",
-    desc: "Tüm tasarımlar sana özel hazırlanır ve %100 senindir.",
+    title: "Fully Custom",
+    desc: "All applications are built exclusively for you and are 100% yours.",
     color: "bg-yellow-500",
   },
 ];
 
 export default function SubscriptionBenefits() {
   return (
-    <section className="bg-[#0a0218] text-white py-20 px-6">
+    <section className="bg-black text-white py-20 px-6">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h2 className="text-4xl font-extrabold uppercase">
-          Neden Bizi Seçmelisiniz ?
+          Why Choose Appdevify?
         </h2>
         <p className="text-gray-300 mt-4 text-lg">
-          Uluslararası alanda kendini kanıtlamış uzmanlardan güvenilir ve yüksek
-          kaliteli tasarım hizmeti alın.
+          Get reliable and high-quality development services from internationally proven experts in the US and UK markets.
         </p>
       </div>
 
@@ -62,7 +61,8 @@ export default function SubscriptionBenefits() {
             }}
           >
             <div
-              className={`w-12 h-12 flex items-center justify-center rounded-lg text-white mb-4 ${item.color}`}
+              className={`w-12 h-12 flex items-center justify-center rounded-lg text-black mb-4`}
+              style={{backgroundColor: '#9CFF28'}}
             >
               {item.icon}
             </div>

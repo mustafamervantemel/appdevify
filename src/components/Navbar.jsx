@@ -1,15 +1,14 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
+  FaMobile,
   FaLaptopCode,
-  FaSearch,
-  FaShoppingCart,
   FaCode,
   FaChevronDown,
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import Logo from "../media/veronlogo12.png";
+import AppdevifyLogo from "../media/appdevify_logo.svg";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -35,30 +34,46 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="text-black py-4 px-6 sm:px-10 relative z-50 bg-white shadow-sm" itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <nav
+      className="text-black py-4 px-6 sm:px-10 relative z-50 bg-white shadow-sm"
+      itemScope
+      itemType="https://schema.org/SiteNavigationElement"
+    >
       <div className="max-w-[1440px] mx-auto flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="w-28 sm:w-32">
-          <img src={Logo} alt="Varonsoft Logo" className="w-full h-auto" />
+        <Link to="/" className="w-56 sm:w-64">
+          <img
+            src={AppdevifyLogo}
+            alt="Appdevify Logo"
+            className="h-32 w-auto"
+          />
         </Link>
 
         {/* Hamburger */}
         <div className="md:hidden">
-          <button onClick={toggleMobileMenu}>
+          <button onClick={toggleMobileMenu} className="text-black">
             {isMobileMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
           </button>
         </div>
 
-        {/* Menü - Masaüstü */}
+        {/* Menu - Desktop */}
         <ul className="hidden md:flex items-center space-x-8 text-sm font-medium">
           <li>
-            <Link to="/" className="hover:text-gray-500" itemProp="url">
-              <span itemProp="name">Anasayfa</span>
+            <Link
+              to="/"
+              className="text-black hover:text-gray-600 transition-colors"
+              itemProp="url"
+            >
+              <span itemProp="name">Home</span>
             </Link>
           </li>
           <li>
-            <Link to="/hakkimizda" className="hover:text-gray-500" itemProp="url">
-              <span itemProp="name">Hakkımızda</span>
+            <Link
+              to="/about"
+              className="text-black hover:text-gray-600 transition-colors"
+              itemProp="url"
+            >
+              <span itemProp="name">About</span>
             </Link>
           </li>
           <li
@@ -66,8 +81,8 @@ export default function Navbar() {
             onMouseEnter={handleServicesEnter}
             onMouseLeave={handleServicesLeave}
           >
-            <span className="cursor-pointer hover:text-gray-500 flex items-center gap-1">
-              Hizmetler <FaChevronDown size={12} />
+            <span className="cursor-pointer text-black hover:text-gray-600 transition-colors flex items-center gap-1">
+              Services <FaChevronDown size={12} />
             </span>
 
             {isServicesOpen && (
@@ -77,111 +92,141 @@ export default function Navbar() {
                 onMouseLeave={handleServicesLeave}
               >
                 <ServiceItem
+                  icon={<FaMobile size={20} />}
+                  title="Mobile App Development"
+                  desc="Native and cross-platform mobile applications."
+                  link="/services/mobile-apps"
+                />
+                <ServiceItem
                   icon={<FaLaptopCode size={20} />}
-                  title="Özel İnternet Sitesi"
-                  desc="Firmanıza özel tasarım ve güçlü performans."
-                  link="/hizmetler/ozel-site"
-                />
-                <ServiceItem
-                  icon={<FaSearch size={20} />}
-                  title="SEO"
-                  desc="Google sıralamasında yükselin, daha görünür olun."
-                  link="/hizmetler/seo"
-                />
-                <ServiceItem
-                  icon={<FaShoppingCart size={20} />}
-                  title="E-Ticaret Sitesi Yapımı"
-                  desc="Ürünlerinizi online satışa taşıyın."
-                  link="/hizmetler/e-ticaret"
+                  title="Web Development"
+                  desc="Modern, responsive websites and web applications."
+                  link="/services/web-development"
                 />
                 <ServiceItem
                   icon={<FaCode size={20} />}
-                  title="Özel Kod Desteği"
-                  desc="İhtiyaca yönelik özel yazılım çözümleri."
-                  link="/hizmetler/kod-destegi"
+                  title="Custom Development"
+                  desc="Tailored software solutions for your business."
+                  link="/services/custom-development"
+                />
+                <ServiceItem
+                  icon={<FaCode size={20} />}
+                  title="Technical Support"
+                  desc="Ongoing maintenance and technical assistance."
+                  link="/services/technical-support"
                 />
               </div>
             )}
           </li>
           <li>
-            <Link to="/portfolyo" className="hover:text-gray-500" itemProp="url">
-              <span itemProp="name">Portfolyo</span>
+            <Link
+              to="/portfolio"
+              className="text-black hover:text-gray-600 transition-colors"
+              itemProp="url"
+            >
+              <span itemProp="name">Portfolio</span>
             </Link>
           </li>
           <li>
-            <Link to="/iletisim" className="hover:text-gray-500" itemProp="url">
-              <span itemProp="name">İletişim</span>
+            <Link
+              to="/contact"
+              className="text-black hover:text-gray-600 transition-colors"
+              itemProp="url"
+            >
+              <span itemProp="name">Contact</span>
             </Link>
           </li>
         </ul>
 
         {/* CTA Button */}
-        <Link to="/iletisim" className="hidden md:block">
-          <button className="bg-[#506C83] hover:bg-[#3e566a] text-white px-5 py-2 rounded-full text-sm font-medium transition">
-            Görüşme Planla
+        <Link to="/contact" className="hidden md:block">
+          <button
+            className="text-black hover:opacity-80 px-5 py-2 rounded-full text-sm font-medium transition"
+            style={{ backgroundColor: "#9CFF28" }}
+          >
+            Get Quote
           </button>
         </Link>
       </div>
 
-      {/* Menü - Mobil */}
+      {/* Menu - Mobile */}
       {isMobileMenuOpen && (
-        <div className="md:hidden mt-4 bg-white rounded-lg shadow-md px-4 py-6 space-y-4 text-sm font-medium">
-          <Link to="/" onClick={toggleMobileMenu} className="block">
-            Anasayfa
+        <div className="md:hidden mt-4 bg-white rounded-lg shadow-md px-4 py-6 space-y-4 text-sm font-medium border border-gray-200">
+          <Link
+            to="/"
+            onClick={toggleMobileMenu}
+            className="block text-black hover:text-gray-600"
+          >
+            Home
           </Link>
-          <Link to="/hakkimizda" onClick={toggleMobileMenu} className="block">
-            Hakkımızda
+          <Link
+            to="/about"
+            onClick={toggleMobileMenu}
+            className="block text-black hover:text-gray-600"
+          >
+            About
           </Link>
 
           <details className="group">
-            <summary className="flex justify-between items-center cursor-pointer list-none block">
-              <span>Hizmetler</span>
+            <summary className="flex justify-between items-center cursor-pointer list-none block text-black hover:text-gray-600">
+              <span>Services</span>
               <FaChevronDown
                 size={12}
                 className="group-open:rotate-180 transition"
               />
             </summary>
             <div className="mt-3 ml-2 space-y-1">
-              <Link 
-                to="/hizmetler/ozel-site" 
+              <Link
+                to="/services/mobile-apps"
                 onClick={toggleMobileMenu}
-                className="block py-2 px-3 text-gray-700 hover:text-[#506C83] hover:bg-gray-50 rounded-md transition-colors"
+                className="block py-2 px-3 text-black hover:text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
               >
-                Özel İnternet Sitesi
+                Mobile App Development
               </Link>
-              <Link 
-                to="/hizmetler/seo" 
+              <Link
+                to="/services/web-development"
                 onClick={toggleMobileMenu}
-                className="block py-2 px-3 text-gray-700 hover:text-[#506C83] hover:bg-gray-50 rounded-md transition-colors"
+                className="block py-2 px-3 text-black hover:text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
               >
-                SEO
+                Web Development
               </Link>
-              <Link 
-                to="/hizmetler/e-ticaret" 
+              <Link
+                to="/services/custom-development"
                 onClick={toggleMobileMenu}
-                className="block py-2 px-3 text-gray-700 hover:text-[#506C83] hover:bg-gray-50 rounded-md transition-colors"
+                className="block py-2 px-3 text-black hover:text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
               >
-                E-Ticaret Sitesi
+                Custom Development
               </Link>
-              <Link 
-                to="/hizmetler/kod-destegi" 
+              <Link
+                to="/services/technical-support"
                 onClick={toggleMobileMenu}
-                className="block py-2 px-3 text-gray-700 hover:text-[#506C83] hover:bg-gray-50 rounded-md transition-colors"
+                className="block py-2 px-3 text-black hover:text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
               >
-                Özel Kod Desteği
+                Technical Support
               </Link>
             </div>
           </details>
 
-          <Link to="/portfolyo" onClick={toggleMobileMenu} className="block">
-            Portfolyo
+          <Link
+            to="/portfolio"
+            onClick={toggleMobileMenu}
+            className="block text-black hover:text-gray-600"
+          >
+            Portfolio
           </Link>
-          <Link to="/iletisim" onClick={toggleMobileMenu} className="block">
-            İletişim
+          <Link
+            to="/contact"
+            onClick={toggleMobileMenu}
+            className="block text-black hover:text-gray-600"
+          >
+            Contact
           </Link>
-          <Link to="/iletisim" onClick={toggleMobileMenu} className="block">
-            <button className="w-full bg-[#506C83] hover:bg-[#3e566a] text-white px-4 py-2 rounded-full font-medium transition">
-              Görüşme Planla
+          <Link to="/contact" onClick={toggleMobileMenu} className="block">
+            <button
+              className="w-full text-black hover:opacity-80 px-4 py-2 rounded-full font-medium transition"
+              style={{ backgroundColor: "#9CFF28" }}
+            >
+              Get Quote
             </button>
           </Link>
         </div>
@@ -190,17 +235,19 @@ export default function Navbar() {
   );
 }
 
-// Hizmet Kartı bileşeni
+// Service Card Component
 function ServiceItem({ icon, title, desc, link }) {
   return (
     <Link
       to={link}
       className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-100 transition cursor-pointer"
     >
-      <div className="mt-1 text-[#506C83]">{icon}</div>
+      <div className="mt-1" style={{ color: "#9CFF28" }}>
+        {icon}
+      </div>
       <div>
-        <h4 className="font-semibold text-sm mb-1">{title}</h4>
-        <p className="text-xs text-gray-600">{desc}</p>
+        <h4 className="font-semibold text-sm mb-1 text-black">{title}</h4>
+        <p className="text-xs text-black">{desc}</p>
       </div>
     </Link>
   );

@@ -6,119 +6,118 @@ import irfan12 from "../media/irfan-panel.png";
 import mrhukuk1 from "../media/mrhukuk-panel.png";
 
 const categories = [
-  "Hepsi",
-  "Ajans",
-  "Yapay Zeka",
-  "Otomotiv",
-  "Danışmanlık",
-  "Eğitim",
-  "Kurumsal",
-  "Etkinlik",
-  "Finans",
-  "Hukuk",
-  "Pazarlama",
-  "Sağlık",
-  "Emlak",
+  "All",
+  "Agency",
+  "Artificial Intelligence",
+  "Automotive",
+  "Consulting",
+  "Education",
+  "Corporate",
+  "Events",
+  "Finance",
+  "Legal",
+  "Marketing",
+  "Health",
+  "Real Estate",
   "Medical",
-  "Teknoloji",
-  "Seyahat",
-  "Video Prodüksiyon",
+  "Technology",
+  "Travel",
+  "Video Production",
 ];
 
 const projects = [
   {
-    category: "Finans",
-    title: "Ubuntu Yatırım",
+    category: "Finance",
+    title: "Ubuntu Investment",
     description:
-      "Özellikle bist hakkında temel ve teknik analiz eğitimi almak isteyen kişiler için hem eğitimler hem eğitim sonrası finansal danışmanlık yapan bir finansal kuruluş.",
-    goal: "Amacımız özellikle borsa yatırımcıların hisseler hakkında sisteme üye olduktan sonra forum ortamında sorularını sorup tartışması ve kolayca eğitim satın alacak bir arayüz geliştirerek satın alım oranını yükseltmekti.",
+      "A financial institution that provides both training and post-training financial consulting for people who want to receive basic and technical analysis training, especially about the stock market.",
+    goal: "Our goal was to develop an interface where stock market investors can ask questions and discuss about stocks in a forum environment after becoming members of the system, and easily purchase training to increase the purchase rate.",
     image: ubuntu1,
     domain: "https://www.ubuntuyatirim.com/",
   },
   {
-    category: "Diş Polikliniği",
+    category: "Dental Clinic",
     title: "Ada Smile Studio",
     description:
-      "Ada Smile Studio İstanbul/Fatih yerli ve yabancı hastalara dental hizmet sunan bir poliklinik.",
-    goal: "Kurduğumuz özel randevu sistemi ile müşteriler direkt internet sitesinde randevu taleplerini polikliniğe iletmesini amaçladık. Ayrıca mobil için özel tasarladığımız hemen ara ve whatsapp ile iletişime geç yoluyla hastaların klinik ile temasını artırdık.",
+      "Ada Smile Studio is a clinic in Istanbul/Fatih that provides dental services to local and foreign patients.",
+    goal: "With our special appointment system, we aimed for customers to directly send their appointment requests to the clinic through the website. Additionally, we increased patients' contact with the clinic through our specially designed mobile features like immediate call and WhatsApp communication.",
     image: adasmile1,
     domain: "https://www.adasmilestudio.com/",
   },
   {
-    category: "Mali Müşavirlik",
+    category: "Accounting",
     title: "İrfan Özdamar",
     description:
-      "İrfan Özdamar web sitesi İrfan Özdamar Bey'in kendi malimüşavirlik hizmetlerini sunduğu bir platform.",
-    goal: "Sayın İrfan Özdamar'ın iş portföyünü ve tecrübesini detaylıca yansıtarak müşterilerin İrfan Bey'i yakından tanımasını amaçladık. Kullandığımız Eylem Butonları sayesinde müşteriler direkt whatsapp ile İrfan Bey'in ofisi ile iletişime geçebiliyor.",
+      "İrfan Özdamar website is a platform where İrfan Özdamar Bey offers his own accounting services.",
+    goal: "We aimed for customers to get to know İrfan Bey closely by thoroughly reflecting Mr. İrfan Özdamar's business portfolio and experience. Thanks to the Action Buttons we used, customers can directly contact İrfan Bey's office via WhatsApp.",
     image: irfan12,
     domain: "https://irfanozdamar-com.vercel.app/",
   },
   {
-    category: "Hukuk",
-    title: "MR Hukuk Bürosu",
+    category: "Legal",
+    title: "MR Law Office",
     description:
-      "MR Hukuk Bürosu Diyarbakır'da hukuki konularda hizmetler veren bir kurum.",
-    goal: "MR Hukuk Bürosunun İş Porföyü ve Hizmetleri detaylıca açıklamak istedik. Ayrıca özellikle Diyarbakır ilindeki müşterilerin ilgisini çekmek için özellikle SEO hizmetlerimizde Diyarbakır ilini hedefledik.",
+      "MR Law Office is an institution that provides legal services in Diyarbakır.",
+    goal: "We wanted to explain MR Law Office's Business Portfolio and Services in detail. Additionally, we specifically targeted Diyarbakır province in our SEO services to attract customers from Diyarbakır.",
     image: mrhukuk1,
     domain: "https://mrhukuk.vercel.app/",
   },
 ];
 
 export default function FullPortfolio() {
-  const [selectedCategory, setSelectedCategory] = useState("Hepsi");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredProjects =
-    selectedCategory === "Hepsi"
+    selectedCategory === "All"
       ? projects
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section className="bg-[#f5f5f5]">
-      {/* ÜST BÖLÜM */}
+    <section className="bg-black">
+      {/* TOP SECTION */}
       <div className="py-20 px-6">
-        <div className="bg-[#16181a] text-white rounded-2xl p-12 flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto">
-          {/* Sol taraf */}
+        <div className="bg-gray-900 text-white rounded-2xl p-12 flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto border border-gray-700">
+          {/* Left side */}
           <div className="flex-1 space-y-6">
-            <span className="inline-block bg-[#2b2e31] text-sm px-4 py-1 rounded-full">
-              • Portfolyo
+            <span className="inline-block bg-gray-800 text-sm px-4 py-1 rounded-full text-gray-300">
+              • Portfolio
             </span>
             <h2 className="text-4xl font-bold leading-tight">
-               <br /> Web Site Portfolyosu
+              <br /> Website Portfolio
             </h2>
             <p className="text-gray-300">
-              Varonsoft, ödüllü bir web tasarım stüdyosudur. 5+ yıllık
-              tecrübemizle 300'den fazla özel web sitesi inşa ettik.
-              Aşağıda projelerimize göz atabilirsin.
+              Appdevify is an award-winning web design studio. With 5+ years of
+              experience, we have built over 300 custom websites. You can browse
+              our projects below.
             </p>
-        
           </div>
 
-          {/* Sağ taraf görsel */}
+          {/* Right side visual */}
           <div className="flex-1 relative">
             <img
               src={monitor}
               alt="portfolio showcase"
               className="rounded-lg shadow-lg"
             />
-            <div className="absolute top-0 right-0 bg-[#2b2e31] text-white px-4 py-2 text-sm rounded-bl-lg shadow-md">
-              300+ web sitesi tasarlandı
+            <div className="absolute top-0 right-0 bg-gray-800 text-white px-4 py-2 text-sm rounded-bl-lg shadow-md">
+              300+ websites designed
             </div>
-            <div className="absolute bottom-0 left-0 bg-[#2b2e31] text-white px-4 py-2 text-sm rounded-tr-lg shadow-md">
-              5+ Yıllık Tecrübe
+            <div className="absolute bottom-0 left-0 bg-gray-800 text-white px-4 py-2 text-sm rounded-tr-lg shadow-md">
+              5+ Years Experience
             </div>
           </div>
         </div>
 
-        {/* Kategori filtreleri */}
+        {/* Category filters */}
         <div className="max-w-5xl mx-auto mt-12 flex flex-wrap gap-4 justify-center">
           {categories.map((cat, i) => (
             <button
               key={i}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium border border-gray-300 ${
+              className={`px-5 py-2 rounded-full text-sm font-medium border ${
                 selectedCategory === cat
-                  ? "bg-black text-white"
-                  : "bg-white hover:bg-gray-100 text-gray-800"
+                  ? "bg-[#9CFF28] text-black border-[#9CFF28]"
+                  : "bg-gray-800 hover:bg-gray-700 text-white border-gray-600"
               } transition`}
             >
               {cat}
@@ -127,16 +126,16 @@ export default function FullPortfolio() {
         </div>
       </div>
 
-      {/* ALT PROJE LİSTESİ */}
-      <div className="bg-[#f9fbfd] py-20 px-6 md:px-16">
+      {/* BOTTOM PROJECT LIST */}
+      <div className="bg-gray-900 py-20 px-6 md:px-16">
         <div className="max-w-7xl mx-auto space-y-16">
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project, index) => (
               <div
                 key={index}
-                className="flex flex-col lg:flex-row items-center gap-8 p-6 border-4 border-[#e3e9ef] rounded-3xl bg-white"
+                className="flex flex-col lg:flex-row items-center gap-8 p-6 border-4 border-gray-700 rounded-3xl bg-gray-800"
               >
-                {/* Görsel */}
+                {/* Image */}
                 <div className="w-full lg:w-1/2">
                   <img
                     src={project.image}
@@ -145,23 +144,24 @@ export default function FullPortfolio() {
                   />
                 </div>
 
-                {/* İçerik */}
+                {/* Content */}
                 <div className="w-full lg:w-1/2 space-y-4">
-                  <span className="inline-block bg-[#e3e9ef] text-[#506C83] text-sm px-3 py-1 rounded-full">
+                  <span className="inline-block bg-gray-700 text-[#9CFF28] text-sm px-3 py-1 rounded-full">
                     {project.category}
                   </span>
-                  <h3 className="text-2xl font-bold text-gray-900">
+                  <h3 className="text-2xl font-bold text-white">
                     {project.title}
                   </h3>
-                  <p className="text-gray-700">{project.description}</p>
-                  <p className="text-gray-500 text-sm">{project.goal}</p>
+                  <p className="text-gray-300">{project.description}</p>
+                  <p className="text-gray-400 text-sm">{project.goal}</p>
                   <a
                     href={project.domain}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 bg-[#506C83] hover:bg-[#3e566a] text-white text-sm px-6 py-2 rounded-full flex items-center gap-2 transition w-fit"
+                    className="mt-4 text-black text-sm px-6 py-2 rounded-full flex items-center gap-2 transition w-fit hover:opacity-80"
+                    style={{ backgroundColor: "#9CFF28" }}
                   >
-                    Siteyi Ziyaret Et
+                    Visit Site
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -180,8 +180,8 @@ export default function FullPortfolio() {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-600">
-              Bu kategoriye ait proje bulunamadı.
+            <p className="text-center text-gray-400">
+              No projects found in this category.
             </p>
           )}
         </div>

@@ -28,17 +28,17 @@ const icons = [
 
 export default function IntegrationsScroll() {
   return (
-    <section className="py-24 px-4 md:px-10 bg-white overflow-hidden">
+    <section className="py-24 px-4 md:px-10 bg-black overflow-hidden">
       <div className="text-center max-w-3xl mx-auto z-10 relative">
-        <span className="inline-block px-3 py-1 bg-[#dbe4ec] text-sm text-gray-600 rounded-full mb-4">
-          • Entegrasyonlar
+        <span className="inline-block px-3 py-1 bg-gray-800 text-sm text-gray-300 rounded-full mb-4">
+          • Integrations
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937] mb-4">
-          Tüm Entegrasyonlarınızı Biz Hallediyoruz
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          We Handle All Your Integrations
         </h2>
-        <p className="text-gray-600 max-w-xl mx-auto">
-          Karmaşık zorluklardan sorunsuz uygulamaya kadar; tüm pazarlama
-          araçlarınızı ve otomasyonlarınızı web sitenize entegre ediyoruz.
+        <p className="text-gray-300 max-w-xl mx-auto">
+          From complex challenges to seamless implementation; we integrate all
+          your marketing tools and automations into your website.
         </p>
       </div>
 
@@ -47,7 +47,7 @@ export default function IntegrationsScroll() {
           {icons.concat(icons).map((icon, i) => (
             <div
               key={i}
-              className="flex items-center justify-center w-20 h-20 p-3 bg-white shadow rounded-full"
+              className="flex items-center justify-center w-20 h-20 p-3 bg-gray-900 shadow rounded-full border border-gray-700"
             >
               <img src={icon} className="w-10 h-10 object-contain" alt="" />
             </div>

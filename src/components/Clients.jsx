@@ -18,17 +18,17 @@ const logosBottom = [
 
 const Clients = () => {
   return (
-    <section className="py-16 px-4 bg-white text-center">
+    <section className="py-16 px-4 bg-black text-center">
       {/* Label */}
       <div className="mb-2">
-        <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full">
+        <span className="bg-gray-800 text-gray-300 text-sm font-semibold px-4 py-1 rounded-full">
           Partnership
         </span>
       </div>
 
       {/* Heading */}
-      <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-10">
-        Değerli Müşterilerimiz
+      <h2 className="text-3xl md:text-4xl font-semibold text-white mb-10">
+        Our Valued Clients
       </h2>
 
       {/* Top Slider */}

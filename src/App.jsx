@@ -26,8 +26,8 @@ function App() {
   useWebVitals();
   
   useEffect(() => {
-    // EmailJS'i başlat
-    emailjs.init("YOUR_PUBLIC_KEY"); // EmailJS Public Key'inizi buraya yazın
+    // Initialize EmailJS
+    emailjs.init("rF_c1o5APLw4e78Qy");
   }, []);
 
   return (
@@ -35,13 +35,13 @@ function App() {
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/hakkimizda" element={<About />} />
-          <Route path="/iletisim" element={<ContactP />} />
-          <Route path="/portfolyo" element={<Portfolio />} />
-          <Route path="/hizmetler/ozel-site" element={<Custom />} />
-          <Route path="/hizmetler/e-ticaret" element={<Commerce />} />
-          <Route path="/hizmetler/seo" element={<SeoPage />} />
-          <Route path="/hizmetler/kod-destegi" element={<Code />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactP />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/services/custom-development" element={<Custom />} />
+          <Route path="/services/mobile-apps" element={<Commerce />} />
+          <Route path="/services/web-development" element={<SeoPage />} />
+          <Route path="/services/technical-support" element={<Code />} />
         </Routes>
       </Suspense>
     </Router>

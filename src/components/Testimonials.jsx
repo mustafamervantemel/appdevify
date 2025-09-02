@@ -2,70 +2,72 @@ import React from "react";
 
 const testimonials = [
   {
-    name: "Ahmet Yılmaz",
-    profession: "Avukat",
-    text: "Veronsoft ile çalışmak harikaydı, web sitemiz tam istediğimiz gibi oldu!"
+    name: "Michael Johnson",
+    profession: "Lawyer",
+    text: "Working with Appdevify was amazing, our website turned out exactly as we wanted!",
   },
   {
-    name: "Elif Demir",
-    profession: "Mali Müşavir",
-    text: "Hızlı ve güvenilir hizmet, kesinlikle tavsiye ederim."
+    name: "Sarah Williams",
+    profession: "Accountant",
+    text: "Fast and reliable service, I definitely recommend them.",
   },
   {
-    name: "Mehmet Kaya",
-    profession: "E-Ticaret",
-    text: "Satışlarımızı artıran modern bir siteye kavuştuk. Teşekkürler!"
+    name: "David Chen",
+    profession: "E-Commerce",
+    text: "We got a modern site that increased our sales. Thank you!",
   },
   {
-    name: "Ayşe Çelik",
-    profession: "Güzellik Salonu Sahibi",
-    text: "Müşteri randevu sistemimiz artık çok daha kolay."
+    name: "Emily Rodriguez",
+    profession: "Beauty Salon Owner",
+    text: "Our customer booking system is now much easier to use.",
   },
   {
-    name: "Burak Şahin",
-    profession: "Doktor",
-    text: "Klinik web sitemiz hem şık hem de kullanışlı oldu."
+    name: "Robert Thompson",
+    profession: "Doctor",
+    text: "Our clinic website is both stylish and functional.",
   },
   {
-    name: "Zeynep Aksoy",
-    profession: "Psikolog",
-    text: "Danışanlarım için harika bir online platform sağladılar."
+    name: "Jennifer Davis",
+    profession: "Psychologist",
+    text: "They provided an amazing online platform for my clients.",
   },
   {
-    name: "Emre Güneş",
-    profession: "Diş Hekimi",
-    text: "Hasta iletişimimiz çok daha profesyonel hale geldi."
+    name: "Christopher Lee",
+    profession: "Dentist",
+    text: "Our patient communication is now much more professional.",
   },
   {
-    name: "Fatma Yıldız",
-    profession: "Restoran Sahibi",
-    text: "Online rezervasyon sistemimiz mükemmel çalışıyor."
+    name: "Amanda Wilson",
+    profession: "Restaurant Owner",
+    text: "Our online reservation system works perfectly.",
   },
   {
-    name: "Caner Toprak",
-    profession: "Fotoğrafçı",
-    text: "Portfolyo sitem çok beğenildi, emeğinize sağlık!"
+    name: "James Brown",
+    profession: "Photographer",
+    text: "My portfolio site was very well received, great work!",
   },
   {
-    name: "Selin Kurt",
-    profession: "Yoga Eğitmeni",
-    text: "Derslerimi kolayca duyurabiliyorum, çok memnunum."
+    name: "Lisa Garcia",
+    profession: "Yoga Instructor",
+    text: "I can easily promote my classes, very satisfied.",
   },
   {
-    name: "Mert Aslan",
-    profession: "Mimar",
-    text: "Projelerimi şık bir şekilde sergileyebiliyorum."
+    name: "Mark Anderson",
+    profession: "Architect",
+    text: "I can showcase my projects in an elegant way.",
   },
 ];
 
 const sliderAnimation = {
-  animation: "testimonial-marquee 40s linear infinite"
+  animation: "testimonial-marquee 40s linear infinite",
 };
 
 export default function Testimonials() {
   return (
-    <div className="w-full bg-[#10141b] py-12 overflow-hidden">
-      <h2 className="text-3xl font-bold text-center text-white mb-8">Müşterilerimizden Yorumlar</h2>
+    <div className="w-full bg-black py-12 overflow-hidden">
+      <h2 className="text-3xl font-bold text-center text-white mb-8">
+        What Our Clients Say
+      </h2>
       <div className="relative w-full overflow-hidden">
         <div
           className="flex gap-8 items-stretch hover:pause-animation"
@@ -74,13 +76,22 @@ export default function Testimonials() {
           {testimonials.concat(testimonials).map((item, idx) => (
             <div
               key={idx}
-              className="min-w-[340px] max-w-[340px] bg-[#181e29] rounded-xl shadow-md p-6 flex flex-col items-center text-center border border-[#232b3a]"
+              className="min-w-[340px] max-w-[340px] bg-gray-900 rounded-xl shadow-md p-6 flex flex-col items-center text-center border border-gray-700"
             >
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-3 border-4 border-[#324b6e]">
-                <span className="text-white font-bold text-lg">{item.name.charAt(0)}</span>
+              <div
+                className="w-16 h-16 rounded-full flex items-center justify-center mb-3 border-4 border-[#9CFF28]"
+                style={{ backgroundColor: "#9CFF28" }}
+              >
+                <span className="text-black font-bold text-lg">
+                  {item.name.charAt(0)}
+                </span>
               </div>
-              <div className="font-semibold text-lg text-white mb-1">{item.name}</div>
-              <div className="text-xs text-blue-300 mb-2">{item.profession}</div>
+              <div className="font-semibold text-lg text-white mb-1">
+                {item.name}
+              </div>
+              <div className="text-xs text-[#9CFF28] mb-2">
+                {item.profession}
+              </div>
               <div className="text-gray-300 text-sm mb-2">"{item.text}"</div>
             </div>
           ))}
@@ -102,4 +113,4 @@ export default function Testimonials() {
       `}</style>
     </div>
   );
-} 
+}

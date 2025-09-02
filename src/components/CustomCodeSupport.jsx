@@ -4,40 +4,40 @@ import monitor from "../media/monitor.jpg";
 
 export default function CustomCodeSupport() {
   return (
-    <section className="bg-gradient-to-r from-[#111] to-[#1a1b1f] text-white py-24 px-6">
+    <section className="bg-black text-white py-24 px-6">
       <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
-        {/* Sol taraf: içerik */}
+        {/* Left side: content */}
         <div className="lg:w-1/2">
-          <span className="bg-[#2f2f32] text-sm text-gray-300 px-4 py-1 rounded-full inline-block mb-4">
-            • Özel Kod Desteği
+          <span className="bg-gray-800 text-sm text-gray-300 px-4 py-1 rounded-full inline-block mb-4">
+            • Custom Code Support
           </span>
           <h2 className="text-4xl font-bold mb-6 leading-snug">
-            Web Siteniz İçin <br /> Özel Kod Desteği
+            Custom Code Support <br /> For Your Website
           </h2>
           <p className="text-gray-400 mb-8">
-            Web sitenizin potansiyelini en üst düzeye çıkarmak için platform
-            kısıtlamalarını aşan profesyonel kod desteği sunuyoruz. Düzen
-            iyileştirmeleri, etkileşim ayarları veya gelişmiş özellikler fark
-            etmeksizin, performanstan ödün vermeyen temiz ve etkili kodlar
-            yazarız.
+            We provide professional code support that goes beyond platform 
+            limitations to maximize your website's potential. Whether it's layout 
+            improvements, interaction settings, or advanced features, we write 
+            clean and effective code without compromising performance.
           </p>
           <a
-            href="/iletisim"
-            className="inline-block bg-[#506C83] hover:bg-[#3e5466] transition px-6 py-3 rounded-full text-white font-medium"
+            href="/contact"
+            className="inline-block text-black transition px-6 py-3 rounded-full font-medium hover:opacity-80"
+            style={{backgroundColor: '#9CFF28'}}
           >
-            Görüşme Planla
+            Schedule Consultation
           </a>
         </div>
 
-        {/* Sağ taraf: görsel alan (yer tutucu olarak kullanılabilir) */}
+        {/* Right side: visual area (can be used as placeholder) */}
         <div className="lg:w-1/2">
-          <div className="relative rounded-xl overflow-hidden shadow-2xl border border-[#333]">
+          <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-700">
             <img
               src= {monitor}
-              alt="Kod Destek Görseli"
+              alt="Code Support Image"
               className="w-full object-cover"
             />
-            {/* üzerine etiket eklenebilir */}
+            {/* labels can be added on top */}
 
           </div>
         </div>

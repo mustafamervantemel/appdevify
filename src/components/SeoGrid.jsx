@@ -11,54 +11,54 @@ import {
 
 const services = [
   {
-    title: "Site Denetimi ve İndeksleme İncelemesi",
+    title: "Site Audit and Indexing Review",
     icon: <FaSearch size={24} />,
     description:
-      "Web sitenizin nasıl yapılandığını, indekslendiğini ve tarandığını analiz ediyor, sorunları tespit edip düzeltiyoruz.",
+      "We analyze how your website is structured, indexed, and crawled, identifying and fixing issues.",
   },
   {
-    title: "Sayfa İçi Optimizasyon",
+    title: "On-Page Optimization",
     icon: <FaRegHandPaper size={24} />,
     description:
-      "Başlıklar, meta açıklamalar, görsel SEO ve iç linkleme gibi içerik stratejinizi yansıtan yapılar kurarız.",
+      "We establish structures that reflect your content strategy, such as titles, meta descriptions, image SEO, and internal linking.",
   },
   {
-    title: "SEO Uyumlu İçerik Yazımı (Gerektiğinde)",
+    title: "SEO-Friendly Content Writing (When Needed)",
     icon: <FaExchangeAlt size={24} />,
     description:
-      "Sıfırdan içerik yazımı gerekiyorsa, hem insanlar hem Google için optimize edilmiş anlamlı içerikler üretiriz.",
+      "If content writing from scratch is needed, we produce meaningful content optimized for both people and Google.",
   },
   {
-    title: "Yerel SEO Kurulumu",
+    title: "Local SEO Setup",
     icon: <FaCog size={24} />,
     description:
-      "Google İşletme Profili, harita verileri ve yerel şema ayarlarını doğru şekilde yapılandırırız.",
+      "We properly configure Google Business Profile, map data, and local schema settings.",
   },
   {
-    title: "İçerik Stratejisi Desteği",
+    title: "Content Strategy Support",
     icon: <FaHeadphones size={24} />,
     description:
-      "Nelerin yayınlanacağı, neyin güncelleneceği veya kaldırılacağı konusunda danışmanlık sunarız.",
+      "We provide consultation on what to publish, what to update, or what to remove.",
   },
   {
-    title: "Sürekli Takip ve Raporlama",
+    title: "Continuous Monitoring and Reporting",
     icon: <FaFolderOpen size={24} />,
     description:
-      "Performansı izler, analizleri değerlendirir ve sessizce arka planda gerekli düzenlemeleri yaparız.",
+      "We monitor performance, evaluate analytics, and make necessary adjustments quietly in the background.",
   },
 ];
 
 export default function SEOServicesGrid() {
   return (
-    <section className="bg-[#111215] text-white py-20 px-6">
+    <section className="bg-black text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold mb-4">
-            Web Sitenizin Görünürlüğünü Artıracak SEO Hizmetleri
+            SEO Services to Increase Your Website's Visibility
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Sihir değil, strateji sunuyoruz. İnsanların ve arama motorlarının
-            davranışlarına dayalı, temiz ve kurallara uygun SEO hizmetleri.
+            We offer strategy, not magic. Clean and rule-compliant SEO services
+            based on human and search engine behaviors.
           </p>
         </div>
 
@@ -66,9 +66,11 @@ export default function SEOServicesGrid() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[#1a1b1f] p-6 rounded-xl hover:shadow-xl hover:scale-[1.02] transition"
+              className="bg-gray-900 p-6 rounded-xl hover:shadow-xl hover:scale-[1.02] transition border border-gray-700"
             >
-              <div className="text-[#7fb3ff] mb-4">{service.icon}</div>
+              <div className="mb-4" style={{ color: "#9CFF28" }}>
+                {service.icon}
+              </div>
               <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
               <p className="text-sm text-gray-400">{service.description}</p>
             </div>

@@ -11,74 +11,76 @@ import {
 const Services = () => {
   const services = [
     {
-      title: "Özel Web Sitesi Tasarımı",
-      desc: "İhtiyacınıza özel, hızlı ve kullanıcı dostu web siteleri tasarlıyoruz.",
+      title: "Custom Website Design",
+      desc: "We design fast and user-friendly websites tailored to your needs.",
       icon: <FaCode size={24} />,
     },
     {
-      title: "Kodsuz Web Kurulumu",
-      desc: "Hiçbir teknik bilgiye ihtiyaç duymadan web sitenizi hazırlıyoruz.",
+      title: "No-Code Web Setup",
+      desc: "We prepare your website without requiring any technical knowledge.",
       icon: <FaGlobe size={24} />,
     },
     {
-      title: "Kod Desteği",
-      desc: "Mevcut Squarespace sitenize özel kodlama çözümleri sunuyoruz.",
+      title: "Code Support",
+      desc: "We provide custom coding solutions for your existing Squarespace site.",
       icon: <FaCode size={24} />,
     },
     {
-      title: "Online Kurs Platformları",
-      desc: "Eğitim platformları ve üyelik sistemleri geliştiriyoruz.",
+      title: "Online Course Platforms",
+      desc: "We develop educational platforms and membership systems.",
       icon: <FaChalkboardTeacher size={24} />,
     },
     {
-      title: "Erişilebilirlik Denetimi",
-      desc: "Web sitenizin her kullanıcı için erişilebilir olmasını sağlıyoruz.",
+      title: "Accessibility Audit",
+      desc: "We ensure your website is accessible to all users.",
       icon: <FaSearch size={24} />,
     },
     {
-      title: "Site Taşıma Hizmeti",
-      desc: "Web sitenizi sorunsuz ve güvenli şekilde yeni altyapıya taşıyoruz.",
+      title: "Site Migration Service",
+      desc: "We move your website seamlessly and securely to new infrastructure.",
       icon: <FaGlobe size={24} />,
     },
     {
-      title: "Web Sitesi Yönetimi",
-      desc: "Web sitenizin güncel, hızlı ve güvenli kalması için teknik destek sağlıyoruz.",
+      title: "Website Management",
+      desc: "We provide technical support to keep your website updated, fast, and secure.",
       icon: <FaCogs size={24} />,
     },
     {
-      title: "E-Ticaret Çözümleri",
-      desc: "Satış odaklı, kullanıcı dostu e-ticaret sistemleri kuruyoruz.",
+      title: "E-Commerce Solutions",
+      desc: "We set up sales-focused, user-friendly e-commerce systems.",
       icon: <FaShoppingCart size={24} />,
     },
     {
-      title: "SEO Optimizasyonu",
-      desc: "Web sitenizin Google’da daha üst sıralarda yer almasını sağlıyoruz.",
+      title: "SEO Optimization",
+      desc: "We help your website rank higher on Google.",
       icon: <FaSearch size={24} />,
     },
   ];
 
   return (
-    <section className="bg-[#f8fbff] text-[#1f2937] py-20 px-6 md:px-16">
+    <section className="bg-black text-white py-20 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937] mb-6">
-          Website Uzmanı ile Zaman ve Para Kazanın
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          Save Time and Money with Website Experts
         </h2>
-        <p className="text-gray-600 mb-12 max-w-3xl">
-          Varonsoft olarak güçlü ve performanslı çözümler sunuyoruz. Tüm
-          ihtiyaçlarınıza uygun, sade ve etkili dijital çözümler sunmak için
-          buradayız.
+        <p className="text-gray-300 mb-12 max-w-3xl">
+          At Appdevify, we provide powerful and high-performance solutions.
+          We're here to offer simple and effective digital solutions for all
+          your needs.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-md p-6 border border-gray-100 hover:ring-2 hover:ring-[#506C83] transition-all"
+              className="bg-gray-900 rounded-2xl shadow-md p-6 border border-gray-700 hover:ring-2 transition-all"
+              style={{ "--tw-ring-color": "#9CFF28" }}
             >
-              <div className="text-[#506C83] mb-4">{service.icon}</div>
+              <div className="mb-4" style={{ color: "#9CFF28" }}>
+                {service.icon}
+              </div>
               <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600 text-sm mb-4">{service.desc}</p>
-         
+              <p className="text-gray-300 text-sm mb-4">{service.desc}</p>
             </div>
           ))}
         </div>

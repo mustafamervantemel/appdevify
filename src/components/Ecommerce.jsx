@@ -5,42 +5,45 @@ import monitor from "../media/monitor.jpg";
 
 export default function ECommerceSection() {
   return (
-    <section className="bg-gradient-to-br from-[#111217] to-[#1a1b1f] text-white py-20 px-6">
+    <section className="bg-black text-white py-20 px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-        {/* Sol metin tarafı */}
+        {/* Left text side */}
         <div className="flex-1 space-y-6">
-          <span className="inline-block bg-[#2a2d33] text-sm px-4 py-1 rounded-full text-gray-300">
-            • E-Ticaret Tasarımı
+          <span className="inline-block bg-gray-800 text-sm px-4 py-1 rounded-full text-gray-300">
+            • E-Commerce Design
           </span>
           <h2 className="text-4xl font-bold leading-snug">
-            Squarespace <br /> E-Ticaret Tasarımı
+            Squarespace <br /> E-Commerce Design
           </h2>
           <p className="text-gray-300 text-base leading-relaxed max-w-xl">
-            Squarespace üzerinde rafine e-ticaret deneyimleri tasarlıyoruz —
-            kolay yönetilen, görsel olarak kusursuz ve dönüşüm odaklı yapılar.
-            İster ilk ürününüzü piyasaya sürüyor olun, ister mevcut mağazanızı
-            büyütüyor olun, uçtan uca hatasız çalışan çevrimiçi mağazalar inşa
-            ediyoruz.
+            We design refined e-commerce experiences on Squarespace — easily
+            managed, visually flawless, and conversion-focused structures.
+            Whether you're launching your first product or growing your existing
+            store, we build end-to-end flawless online stores.
           </p>
-          <Link to="/iletisim" className="bg-[#506C83] hover:bg-[#3e566a] text-white font-medium px-6 py-3 rounded-full transition inline-block text-center">
-            Görüşme Planla
+          <Link
+            to="/contact"
+            className="text-black font-medium px-6 py-3 rounded-full transition inline-block text-center hover:opacity-80"
+            style={{ backgroundColor: "#9CFF28" }}
+          >
+            Schedule Consultation
           </Link>
         </div>
 
-        {/* Sağ görsel alanı */}
+        {/* Right visual area */}
         <div className="flex-1 relative">
           <img
-            src= {monitor} // örnek görsel yolu (değiştirilebilir)
-            alt="Dijital Ürünler Görseli"
+            src={monitor} // example image path (can be changed)
+            alt="Digital Products Image"
             className="rounded-xl shadow-lg w-full max-w-2xl"
           />
-          {/* Etiket: Güvenli Ödeme */}
-          <div className="absolute top-0 right-0 bg-[#2f3136] text-xs text-white px-3 py-1 rounded-bl-lg shadow">
-            Güvenli Ödeme
+          {/* Label: Secure Payment */}
+          <div className="absolute top-0 right-0 bg-gray-800 text-xs text-white px-3 py-1 rounded-bl-lg shadow">
+            Secure Payment
           </div>
-          {/* Etiket: Dijital Ürünler */}
-          <div className="absolute bottom-4 left-4 bg-[#2f3136] text-xs text-white px-3 py-1 rounded-tr-lg shadow">
-            Dijital Ürünler
+          {/* Label: Digital Products */}
+          <div className="absolute bottom-4 left-4 bg-gray-800 text-xs text-white px-3 py-1 rounded-tr-lg shadow">
+            Digital Products
           </div>
         </div>
       </div>

@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import RectangleBg from "../media/rectangle.jpg"; // Görsel yolunu dosya konumuna göre ayarla
+import RectangleBg from "../media/rectangle.jpg";
 
-const SERVICE_ID = "service_msih2tq";
-const TEMPLATE_ID = "template_glsrfjf";
-const PUBLIC_KEY = "STJyxJJfDiPqPwq0B";
+const SERVICE_ID = "service_nuc43so";
+const TEMPLATE_ID_ADMIN = "template_dmblenn";
+const TEMPLATE_ID_AUTOREPLY = "template_odm7eb9";
+const PUBLIC_KEY = "rF_c1o5APLw4e78Qy";
 
 const Hero = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: ""
-  });
+  const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -25,42 +20,37 @@ const Hero = () => {
     img.src = RectangleBg;
   }, []);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      await emailjs.send(
+      // Ensure EmailJS is initialized
+      if (typeof emailjs.sendForm !== 'function') {
+        emailjs.init(PUBLIC_KEY);
+      }
+
+      // Send admin notification
+      await emailjs.sendForm(
         SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          from_phone: formData.phone,
-          subject: formData.subject,
-          message: formData.message,
-        },
+        TEMPLATE_ID_ADMIN,
+        form.current,
         PUBLIC_KEY
       );
+
+      // Send auto-reply to user
+      await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID_AUTOREPLY,
+        form.current,
+        PUBLIC_KEY
+      );
+
       setSubmitStatus('success');
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: ""
-      });
+      form.current.reset();
     } catch (error) {
-      console.error('Email gönderimi başarısız:', error);
+      console.error('Email sending failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -74,146 +64,118 @@ const Hero = () => {
       }`}
       style={{ backgroundImage: `url(${RectangleBg})` }}
     >
-      {/* Yarı saydam katman (istersen koyulaştırabilirsin) */}
+      {/* Semi-transparent overlay */}
       <div className="absolute inset-0 bg-black/20 z-0" />
 
-      {/* İçerik */}
+      {/* Content */}
       <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between px-6 sm:px-10 lg:px-[8%] py-10 gap-10 max-w-[1440px] mx-auto min-h-screen">
-        {/* Sol taraf: Tanıtım metni */}
+        {/* Left side: Hero content */}
         <div className="flex-1 max-w-full lg:max-w-[48%]">
           <div className="flex gap-3 mb-6 flex-wrap">
-            <span className="bg-green-500/20 text-green-300 text-sm font-medium px-4 py-1 rounded-full">
-              Müsait
+            <span className="bg-green-500/20 text-green-300 text-sm font-medium px-4 py-1 rounded-full" style={{backgroundColor: 'rgba(156, 255, 40, 0.2)', color: '#9CFF28'}}>
+              Available
             </span>
             <span className="bg-white/10 text-white text-sm font-medium px-4 py-1 rounded-full">
-              İletişime Geç
+              Get in Touch
             </span>
           </div>
 
           <h1 className="text-[2rem] sm:text-[2.5rem] leading-tight font-semibold mb-6">
-            Varonsoft: Ödüllü <br />
-            <span className="text-blue-300">Web Tasarım Ajansı</span>
+            Appdevify: Premium <br />
+            <span style={{color: '#9CFF28'}}>App & Web Development</span>
           </h1>
 
           <p className="text-base text-gray-300 mb-8">
-            5+ yıllık tecrübemizle, Türkiye ve dünya çapında 450'den fazla özel
-            tasarım site oluşturduk. Şimdi senin için başlıyoruz.
+            With 5+ years of expertise, we've built 450+ custom applications and websites 
+            for clients across the US, UK, and globally. Let's bring your vision to life.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
             <a
-              href="https://wa.me/905305629126"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="bg-white/10 text-white border border-white/20 px-6 py-2.5 rounded-full font-medium hover:bg-white hover:text-black transition text-center"
             >
-              İletişime Geç
+              Get Started
             </a>
           </div>
         </div>
 
-        {/* Sağ taraf: Form kutusu */}
+        {/* Right side: Contact form */}
         <div className="flex-1 w-full max-w-full lg:max-w-[480px] bg-white rounded-xl shadow-2xl p-6 sm:p-8 text-black">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Başarı/Hata mesajları */}
+          <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+            {/* Success/Error messages */}
             {submitStatus === 'success' && (
-              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-                Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+              <div className="border border-green-400 text-green-700 px-4 py-3 rounded" style={{backgroundColor: 'rgba(156, 255, 40, 0.1)'}}>
+                Your message has been sent successfully! We'll get back to you shortly.
               </div>
             )}
             {submitStatus === 'error' && (
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-                Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.
+                There was an error sending your message. Please try again.
               </div>
             )}
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
-                <label className="block font-medium mb-1 text-sm">
-                  Ad <span className="text-red-500">*</span>
-                </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
                 <input
                   type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Adınızı girin"
+                  name="user_name"
+                  className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 text-sm placeholder-gray-500"
+                  placeholder="Your name"
                   required
-                  className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
               </div>
-              <div className="flex-1">
-                <label className="block font-medium mb-1 text-sm">
-                  E-posta <span className="text-red-500">*</span>
-                </label>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
                 <input
                   type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="E-posta adresiniz"
+                  name="user_email"
+                  className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 text-sm placeholder-gray-500"
+                  placeholder="your.email@company.com"
                   required
-                  className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block font-medium mb-1 text-sm">
-                Telefon <span className="text-red-500">*</span>
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
               <input
                 type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="05XX XXX XX XX"
-                pattern="[0-9]{11}"
+                name="user_phone"
+                className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 text-sm placeholder-gray-500"
+                placeholder="+1 (555) 123-4567"
                 required
-                className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
             </div>
 
             <div>
-              <label className="block font-medium mb-1 text-sm">
-                Konu <span className="text-red-500">*</span>
-              </label>
-              <select 
+              <label className="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
+              <input
+                type="text"
                 name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
+                className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 text-sm placeholder-gray-500"
+                placeholder="Subject"
                 required
-                className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              >
-                <option value="">Konu seçin</option>
-                <option value="Web Sitesi Tasarımı">Web Sitesi Tasarımı</option>
-                <option value="SEO Danışmanlığı">SEO Danışmanlığı</option>
-                <option value="E-Ticaret Sitesi">E-Ticaret Sitesi</option>
-                <option value="Diğer">Diğer</option>
-              </select>
+              />
             </div>
 
             <div>
-              <label className="block font-medium mb-1 text-sm">
-                Mesaj <span className="text-red-500">*</span>
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
               <textarea
                 name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Size nasıl yardımcı olabiliriz?"
+                className="block w-full px-3 py-2 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 text-sm placeholder-gray-500"
+                placeholder="Tell us briefly about your project"
                 rows="4"
                 required
-                className="w-full border rounded-md px-4 py-2 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              ></textarea>
+              />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-[#324b6e] text-white py-3 rounded-full font-semibold hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-[#9CFF28] text-black px-6 py-3 rounded-full font-medium hover:opacity-90 transition"
             >
-              {isSubmitting ? 'Gönderiliyor...' : 'Talep Gönder'}
+              {isSubmitting ? 'Sending...' : 'Send Request'}
             </button>
           </form>
         </div>
