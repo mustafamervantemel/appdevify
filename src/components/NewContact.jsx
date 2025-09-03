@@ -11,6 +11,21 @@ export default function ContactSection() {
   const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,31 +33,42 @@ export default function ContactSection() {
     setSubmitStatus(null);
     
     try {
-      // Ensure EmailJS is initialized
-      if (typeof emailjs.sendForm !== 'function') {
-        emailjs.init(PUBLIC_KEY);
-      }
+      // Initialize EmailJS with public key
+      emailjs.init(PUBLIC_KEY);
 
       // Send admin notification
-      await emailjs.sendForm(
+      const adminResponse = await emailjs.sendForm(
         SERVICE_ID,
         TEMPLATE_ID_ADMIN,
         form.current,
         PUBLIC_KEY
       );
+      console.log('Admin email sent:', adminResponse);
 
       // Send auto-reply to user
-      await emailjs.sendForm(
+      const userResponse = await emailjs.sendForm(
         SERVICE_ID,
         TEMPLATE_ID_AUTOREPLY,
         form.current,
         PUBLIC_KEY
       );
+      console.log('Auto-reply sent:', userResponse);
 
       setSubmitStatus("success");
-      form.current.reset();
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
     } catch (error) {
       console.error('Email sending failed:', error);
+      console.error('Error details:', {
+        message: error.message,
+        text: error.text,
+        status: error.status
+      });
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -61,6 +87,7 @@ export default function ContactSection() {
           services. We'll get back to you as soon as possible.
         </p>
         <form
+          ref={form}
           onSubmit={handleSubmit}
           className="bg-gray-900 border-8 border-gray-700 rounded-2xl p-8 space-y-6"
         >
@@ -162,8 +189,8 @@ export default function ContactSection() {
             </div>
           )}
           {submitStatus === "error" && (
-            <div className="text-red-400 text-center font-medium mt-2">
-              An error occurred, please try again.
+            <div className="text-red-400 text-center font-medium mt-2 px-4 py-3 rounded border border-red-400 bg-red-400 bg-opacity-10">
+              There was an error sending your message. Please try again.
             </div>
           )}
         </form>
