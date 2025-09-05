@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NewContact from "../components/NewContact";
@@ -8,21 +7,19 @@ import ContactCard from "../components/ContactCard";
 const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
-      <Helmet>
-        <title>İletişim | Varonsoft - Telefon, E-posta & Adres | Web Tasarım Ajansı</title>
-        <meta name="description" content="Varonsoft ile iletişime geçin. Telefon: 0530 562 91 26, E-posta: info@varonsoft.com. İstanbul/Pendik'te web tasarım, yazılım ve dijital çözümler için bize ulaşın." />
-        <meta name="keywords" content="varonsoft iletişim, telefon, e-posta, adres, web tasarım ajansı, istanbul" />
-        <link rel="canonical" href="https://www.varonsoft.com/iletisim" />
-        <meta property="og:title" content="İletişim | Varonsoft - Telefon, E-posta & Adres" />
-        <meta property="og:description" content="Varonsoft ile iletişime geçin. Telefon: 0530 562 91 26, E-posta: info@varonsoft.com." />
-        <meta property="og:url" content="https://www.varonsoft.com/iletisim" />
-        <meta property="og:image" content="https://www.varonsoft.com/veron-tiny.svg" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="İletişim | Varonsoft - Telefon, E-posta & Adres" />
-        <meta name="twitter:description" content="Varonsoft ile iletişime geçin. Telefon: 0530 562 91 26, E-posta: info@varonsoft.com." />
-        <meta name="twitter:image" content="https://www.varonsoft.com/veron-tiny.svg" />
-      </Helmet>
+      <title>Contact Us | Appdevify - Mobile App & Web Development Company</title>
+      <meta name="description" content="Get in touch with Appdevify for custom mobile app and web development services. Phone: +90 530 562 91 26, Email: hello@appdevify.com. Serving clients in UK, US and globally." />
+      <meta name="keywords" content="appdevify contact, mobile app development company, web development services, UK app developers, US web development contact" />
+      <link rel="canonical" href="https://www.appdevify.com/contact" />
+      <meta property="og:title" content="Contact Us | Appdevify - Mobile App & Web Development" />
+      <meta property="og:description" content="Get in touch with Appdevify for mobile app and web development services. Phone: +90 530 562 91 26, Email: hello@appdevify.com." />
+      <meta property="og:url" content="https://www.appdevify.com/contact" />
+      <meta property="og:image" content="https://www.appdevify.com/appdevify-logo.png" />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Contact Us | Appdevify - Mobile App & Web Development" />
+      <meta name="twitter:description" content="Get in touch with Appdevify for mobile app and web development services. Phone: +90 530 562 91 26, Email: hello@appdevify.com." />
+      <meta name="twitter:image" content="https://www.appdevify.com/appdevify-logo.png" />
 
       {/* Arka plan efektleri */}
       <div className="absolute w-[600px] h-[600px] bg-[#4c5faf] opacity-30 rounded-full blur-[120px] top-[-150px] left-[50px]"></div>

@@ -2,73 +2,56 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
-export default function ContactSection() {
-  const SERVICE_ID = "service_nuc43so";
-  const TEMPLATE_ID_ADMIN = "template_dmblenn";
-  const TEMPLATE_ID_AUTOREPLY = "template_odm7eb9";
-  const PUBLIC_KEY = "rF_c1o5APLw4e78Qy";
 
-  const form = useRef();
+
+export default function ContactSection() {
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+
+
+
+  const form = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
-    try {
-      // Initialize EmailJS with public key
-      emailjs.init(PUBLIC_KEY);
 
-      // Send admin notification
-      const adminResponse = await emailjs.sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID_ADMIN,
+    try {
+      // Set dynamic values before sending
+      const fromNameInput = form.current.querySelector('input[name="from_name"]');
+      const timeInput = form.current.querySelector('input[name="time"]');
+      const nameInput = form.current.querySelector('input[name="user_name"]');
+      
+      if (fromNameInput && nameInput) {
+        fromNameInput.value = nameInput.value;
+      }
+      if (timeInput) {
+        timeInput.value = new Date().toLocaleString();
+      }
+
+      // Send contact form to admin
+      await emailjs.sendForm(
+        "service_nuc43so",
+        "template_dmblenn",
         form.current,
-        PUBLIC_KEY
+        "rF_c1o5APLw4e78Qy"
       );
-      console.log('Admin email sent:', adminResponse);
 
       // Send auto-reply to user
-      const userResponse = await emailjs.sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID_AUTOREPLY,
+      await emailjs.sendForm(
+        "service_nuc43so",
+        "template_odm7eb9",
         form.current,
-        PUBLIC_KEY
+        "rF_c1o5APLw4e78Qy"
       );
-      console.log('Auto-reply sent:', userResponse);
 
       setSubmitStatus("success");
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-      });
+      form.current.reset();
     } catch (error) {
-      console.error('Email sending failed:', error);
-      console.error('Error details:', {
-        message: error.message,
-        text: error.text,
-        status: error.status
-      });
+      console.error("Email sending error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -98,9 +81,7 @@ export default function ContactSection() {
               </label>
               <input
                 type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
+                name="user_name"
                 placeholder="Enter your name"
                 required
                 className="w-full bg-gray-800 border border-gray-600 rounded-md px-4 py-2 text-sm text-white focus:outline-none focus:ring-2"
@@ -113,9 +94,7 @@ export default function ContactSection() {
               </label>
               <input
                 type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
+                name="user_email"
                 placeholder="Enter your email address"
                 required
                 className="w-full bg-gray-800 border border-gray-600 rounded-md px-4 py-2 text-sm text-white focus:outline-none focus:ring-2"
@@ -129,9 +108,7 @@ export default function ContactSection() {
             </label>
             <input
               type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
+              name="user_phone"
               placeholder="+1 (555) 123-4567"
               required
               className="w-full bg-gray-800 border border-gray-600 rounded-md px-4 py-2 text-sm text-white focus:outline-none focus:ring-2"
@@ -145,8 +122,6 @@ export default function ContactSection() {
             <input
               type="text"
               name="subject"
-              value={formData.subject}
-              onChange={handleInputChange}
               placeholder="Subject"
               required
               className="w-full bg-gray-800 border border-gray-600 rounded-md px-4 py-2 text-sm text-white focus:outline-none focus:ring-2"
@@ -159,8 +134,6 @@ export default function ContactSection() {
             </label>
             <textarea
               name="message"
-              value={formData.message}
-              onChange={handleInputChange}
               placeholder="How can we help you?"
               rows="4"
               required
@@ -168,6 +141,11 @@ export default function ContactSection() {
               style={{ "--tw-ring-color": "#9CFF28" }}
             ></textarea>
           </div>
+
+          {/* Hidden fields for EmailJS template compatibility */}
+          <input type="hidden" name="from_name" value="" />
+          <input type="hidden" name="time" value="" />
+
           <button
             type="submit"
             disabled={isSubmitting}

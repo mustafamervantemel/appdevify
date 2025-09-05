@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Why from "../components/Why";
@@ -10,117 +9,131 @@ import Type from "../components/Type";
 import Library from "../components/Library";
 import General from "../components/General";
 import Footer from "../components/Footer";
-import Talk from "../components/Talk";
 import Call from "../components/MobileCTA";
 import Testimonials from "../components/Testimonials";
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
-      <Helmet>
-        <title>Varonsoft - Türkiye'nin En İyi Web Tasarım & Yazılım Ajansı | Kurumsal Site & E-Ticaret</title>
-        <meta name="description" content="Türkiye'nin lider web tasarım ve yazılım ajansı Varonsoft. Modern web siteleri, e-ticaret, SEO, mobil uygulamalar için uzman ekibimizle işletmenizi dijitalleştirin. 7/24 destek, hızlı teslimat garantisi." />
-        <meta name="keywords" content="türkiye web tasarım, istanbul web tasarım, web sitesi yapımı, e-ticaret sitesi, kurumsal web tasarım, yazılım şirketi, dijital ajans, seo hizmetleri, mobil uygulama, varonsoft" />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="language" content="tr" />
-        <meta name="geo.region" content="TR" />
-        <meta name="geo.country" content="Turkey" />
-        <meta name="geo.placename" content="Türkiye" />
-        <meta name="author" content="Varonsoft Yazılım ve Teknoloji" />
-        <meta name="revisit-after" content="1 days" />
-        <meta name="distribution" content="global" />
-        <meta name="rating" content="general" />
-        <meta name="subject" content="Web Tasarım, Yazılım Geliştirme, E-Ticaret, SEO Hizmetleri" />
-        <meta name="classification" content="Business, Technology, Web Development" />
-        <meta name="target" content="all" />
-        <meta name="audience" content="all" />
-        <meta name="coverage" content="worldwide" />
-        <meta name="identifier-URL" content="https://www.varonsoft.com" />
-        <link rel="canonical" href="https://www.varonsoft.com/" />
-        <meta property="og:title" content="Varonsoft - Modern Web Tasarım & Yazılım Ajansı" />
-        <meta property="og:description" content="Varonsoft, modern ve yenilikçi web tasarım, yazılım ve dijital dönüşüm çözümleri sunar." />
-        <meta property="og:image" content="https://www.varonsoft.com/veron-tiny.svg" />
-        <meta property="og:url" content="https://www.varonsoft.com/" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Varonsoft - Modern Web Tasarım & Yazılım Ajansı" />
-        <meta name="twitter:description" content="Varonsoft, modern ve yenilikçi web tasarım, yazılım ve dijital dönüşüm çözümleri sunar." />
-        <meta name="twitter:image" content="https://www.varonsoft.com/veron-tiny.svg" />
-        <script type="application/ld+json">
-          {`
+    <>
+      <title>Appdevify - Premier Mobile App & Web Development Company | UK & US</title>
+      <meta name="description" content="Leading mobile app and web development company serving UK & US clients. Custom software solutions, modern web applications, e-commerce platforms, and digital transformation services. Expert developers, fast delivery, 24/7 support." />
+      <meta name="keywords" content="mobile app development, web development company, custom software development, react native apps, iOS development, android development, web applications, e-commerce development, UK app developers, US web development" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="language" content="en" />
+      <meta name="geo.region" content="GB, US" />
+      <meta name="geo.country" content="United Kingdom, United States" />
+      <meta name="geo.placename" content="UK, US" />
+      <meta name="author" content="Appdevify Development Team" />
+      <meta name="revisit-after" content="1 days" />
+      <meta name="distribution" content="global" />
+      <meta name="rating" content="general" />
+      <meta name="subject" content="Mobile App Development, Web Development, Software Engineering, Digital Solutions" />
+      <meta name="classification" content="Business, Technology, Web Development" />
+      <meta name="target" content="all" />
+      <meta name="audience" content="all" />
+      <meta name="coverage" content="worldwide" />
+      <meta name="identifier-URL" content="https://www.appdevify.com" />
+      <link rel="canonical" href="https://www.appdevify.com/" />
+      <meta property="og:title" content="Appdevify - Premier Mobile App & Web Development Company" />
+      <meta property="og:description" content="Leading mobile app and web development company serving UK & US clients. Custom software solutions, modern web applications, and digital transformation services." />
+      <meta property="og:image" content="https://www.appdevify.com/appdevify-logo.png" />
+      <meta property="og:url" content="https://www.appdevify.com/" />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Appdevify - Premier Mobile App & Web Development Company" />
+      <meta name="twitter:description" content="Leading mobile app and web development company serving UK & US clients. Custom software solutions and digital transformation services." />
+      <meta name="twitter:image" content="https://www.appdevify.com/appdevify-logo.png" />
+      <script type="application/ld+json">
+        {`
             {
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Varonsoft",
-              "alternateName": "Varonsoft Yazılım ve Teknoloji",
-              "description": "Türkiye'nin lider web tasarım ve yazılım ajansı. Modern web siteleri, e-ticaret, SEO, mobil uygulamalar için uzman ekibimizle işletmenizi dijitalleştirin.",
-              "url": "https://www.varonsoft.com",
-              "logo": "https://www.varonsoft.com/veron-tiny.svg",
-              "foundingDate": "2020",
+              "name": "Appdevify",
+              "alternateName": "Appdevify Development Team",
+              "description": "Leading mobile app and web development company serving UK & US clients. Custom software solutions, modern web applications, e-commerce platforms, and digital transformation services.",
+              "url": "https://www.appdevify.com",
+              "logo": "https://www.appdevify.com/appdevify-logo.png",
+              "foundingDate": "2019",
               "foundingLocation": {
                 "@type": "Place",
-                "name": "Türkiye"
+                "name": "United Kingdom"
               },
-              "areaServed": {
-                "@type": "Country",
-                "name": "Türkiye"
-              },
+              "areaServed": [
+                {
+                  "@type": "Country",
+                  "name": "United Kingdom"
+                },
+                {
+                  "@type": "Country",
+                  "name": "United States"
+                }
+              ],
               "knowsAbout": [
-                "Web Tasarım",
-                "Yazılım Geliştirme",
-                "E-ticaret",
-                "SEO",
-                "Mobil Uygulama",
-                "Dijital Pazarlama",
-                "Kurumsal Web Sitesi",
+                "Mobile App Development",
+                "Web Development",
+                "React Native",
+                "iOS Development",
+                "Android Development",
+                "Custom Software Development",
+                "E-commerce Development",
                 "React",
                 "Node.js",
-                "JavaScript"
+                "JavaScript",
+                "Python",
+                "Flutter",
+                "Swift",
+                "Kotlin"
               ],
-              "slogan": "Dijital Dönüşümde Güvenilir Ortağınız",
+              "slogan": "Your Trusted Partner in Digital Innovation",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "availableLanguage": "Turkish"
+                "availableLanguage": ["English"]
               },
-              "serviceArea": {
-                "@type": "Country",
-                "name": "Turkey"
-              },
+              "serviceArea": [
+                {
+                  "@type": "Country",
+                  "name": "United Kingdom"
+                },
+                {
+                  "@type": "Country",
+                  "name": "United States"
+                }
+              ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Varonsoft Hizmetleri",
+                "name": "Appdevify Services",
                 "itemListElement": [
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Web Tasarım",
-                      "description": "Modern, responsive ve SEO uyumlu web sitesi tasarımı"
+                      "name": "Mobile App Development",
+                      "description": "Custom iOS and Android applications with React Native, Flutter, and native technologies"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "E-ticaret",
-                      "description": "Profesyonel e-ticaret sitesi ve online mağaza çözümleri"
+                      "name": "Web Development",
+                      "description": "Modern, responsive websites and web applications using React, Node.js, and latest technologies"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "SEO",
-                      "description": "Arama motoru optimizasyonu ve Google sıralama hizmetleri"
+                      "name": "E-commerce Development",
+                      "description": "Professional online stores and e-commerce platforms with payment integration and inventory management"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Yazılım Geliştirme",
-                      "description": "Özel yazılım ve mobil uygulama geliştirme"
+                      "name": "Custom Software Development",
+                      "description": "Tailored software solutions, APIs, and enterprise applications for business automation"
                     }
                   }
                 ]
@@ -132,8 +145,9 @@ const Home = () => {
                 "bestRating": "5"
               },
               "sameAs": [
-                "https://www.instagram.com/varonsoft/",
-                "https://www.linkedin.com/company/varonsoft/"
+                "https://www.instagram.com/appdevify/",
+                "https://www.linkedin.com/company/appdevify/",
+                "https://twitter.com/appdevify"
               ]
             }
           `}
@@ -339,28 +353,29 @@ const Home = () => {
             }
           `}
         </script>
-      </Helmet>
+      
+      <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
+        {/* Arka plan efektleri */}
+        <div className="absolute w-[600px] h-[600px] bg-[#4c5faf] opacity-30 rounded-full blur-[120px] top-[-150px] left-[50px]"></div>
+        <div className="absolute w-[500px] h-[500px] bg-[#324b6e] opacity-20 rounded-full blur-[100px] bottom-[-100px] right-[0px]"></div>
 
-      {/* Arka plan efektleri */}
-      <div className="absolute w-[600px] h-[600px] bg-[#4c5faf] opacity-30 rounded-full blur-[120px] top-[-150px] left-[50px]"></div>
-      <div className="absolute w-[500px] h-[500px] bg-[#324b6e] opacity-20 rounded-full blur-[100px] bottom-[-100px] right-[0px]"></div>
-
-      {/* İçerik */}
-      <div className="relative z-10">
-        <Navbar />
-        <Call />
-        <Hero />
-        <Testimonials />
-        <Why />
-        <Work />
-        <Contact />
-        <Integration />
-        <Type />
-        <Library />
-        <General />
-        <Footer />
+        {/* İçerik */}
+        <div className="relative z-10">
+          <Navbar />
+          <Call />
+          <Hero />
+          <Testimonials />
+          <Why />
+          <Work />
+          <Contact />
+          <Integration />
+          <Type />
+          <Library />
+          <General />
+          <Footer />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

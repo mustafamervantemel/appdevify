@@ -2,7 +2,7 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const MobileCTA = () => {
-  const phoneNumber = "15551234567"; // US format, no spaces
+  const phoneNumber = "905305629126"; // Turkish format, no spaces
   const whatsappLink = `https://wa.me/${phoneNumber}`;
 
   return (

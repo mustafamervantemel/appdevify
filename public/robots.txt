@@ -4,10 +4,10 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /*.json$
 Disallow: /*?*
-Allow: /hizmetler/
-Allow: /portfolyo/
-Allow: /hakkimizda/
-Allow: /iletisim/
+Allow: /services/
+Allow: /portfolio/
+Allow: /about/
+Allow: /contact/
 
 # Crawl-delay for different bots
 User-agent: Googlebot
@@ -20,6 +20,4 @@ User-agent: Slurp
 Crawl-delay: 3
 
 # Sitemaps
-Sitemap: https://www.varonsoft.com/sitemap.xml
-Sitemap: https://www.varonsoft.com/sitemap-news.xml
-Sitemap: https://www.varonsoft.com/sitemap-images.xml 
+Sitemap: https://www.appdevify.com/sitemap.xml 

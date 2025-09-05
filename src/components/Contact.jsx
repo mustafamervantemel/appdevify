@@ -4,10 +4,6 @@ import Ofemale2 from "../profile/Ofemale2.svg";
 import emailjs from "@emailjs/browser";
 
 export default function ContactP() {
-  const SERVICE_ID = "service_nuc43so";
-  const TEMPLATE_ID_ADMIN = "template_dmblenn";
-  const TEMPLATE_ID_AUTOREPLY = "template_odm7eb9";
-  const PUBLIC_KEY = "rF_c1o5APLw4e78Qy";
 
   const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,33 +13,40 @@ export default function ContactP() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
+
     try {
-      // Ensure EmailJS is initialized
-      if (typeof emailjs.sendForm !== 'function') {
-        emailjs.init(PUBLIC_KEY);
+      // Set dynamic values before sending
+      const fromNameInput = form.current.querySelector('input[name="from_name"]');
+      const timeInput = form.current.querySelector('input[name="time"]');
+      const nameInput = form.current.querySelector('input[name="user_name"]');
+      
+      if (fromNameInput && nameInput) {
+        fromNameInput.value = nameInput.value;
+      }
+      if (timeInput) {
+        timeInput.value = new Date().toLocaleString();
       }
 
-      // Send admin notification
+      // Send contact form to admin
       await emailjs.sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID_ADMIN,
+        "service_nuc43so",
+        "template_dmblenn",
         form.current,
-        PUBLIC_KEY
+        "rF_c1o5APLw4e78Qy"
       );
 
       // Send auto-reply to user
       await emailjs.sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID_AUTOREPLY,
+        "service_nuc43so",
+        "template_odm7eb9",
         form.current,
-        PUBLIC_KEY
+        "rF_c1o5APLw4e78Qy"
       );
 
       setSubmitStatus("success");
       form.current.reset();
-    } catch (err) {
-      console.error('Email sending failed:', err);
+    } catch (error) {
+      console.error("Email sending error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -155,6 +158,10 @@ export default function ContactP() {
               required
             />
           </div>
+
+          {/* Hidden fields for EmailJS template compatibility */}
+          <input type="hidden" name="from_name" value="" />
+          <input type="hidden" name="time" value="" />
 
           <button
             type="submit"
